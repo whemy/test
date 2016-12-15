@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<title></title>
+	<meta name="keywords" content="关键字">
+	<meta name="description" content="描述">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telphone=no, email=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico">
+	<link rel="apple-touch-icon" href="/static/images/favicon.png">
+	<link rel="stylesheet" href="../css/app.css">
+	<style type="text/css">
+		.hot-type{width: 100%;position: relative;margin-top: 40px;}
+		.hot-type header{font-size: 14px;padding: 10px;border-bottom: 5px solid  #eee;}
+		.hot-list{padding: 1.6rem .8rem;border-bottom: 5px solid  #eee;}
+		.hot-list .row ul{width: 100%;display: table;margin-top: 10px;}
+		.hot-list .row li{width: 20%;display: table-cell;text-align: center;}
+		.hot-list .row li span{display: inline-block;width: 60px;height: 40px;vertical-align: top;}
+		.hot-list .row li span img{width: 100%;}
+		.hot-list .row li p{font-size: 14px;margin-top: 10px;}
+		.list-type{position: relative;}
+		.list-type .list-brand{border-bottom: 5px solid  #eee;}
+		.list-type .list-brand h1{font-size: 16px;color: #333;border-bottom: 1px solid  #e8e8e8;margin: 0;padding: 10px 12px;}
+		.list-type .list-brand li{width: 100%;border-bottom: 1px solid  #f1f1f1;}
+		.list-type .list-brand li div{display: inline-block;padding: 12px;width: 30px;height: 30px;}
+		.list-type .list-brand li div img{width: 100%;}
+		.list-type .list-brand li span{font-size: 16px;color: #333;}
+		.list-type .list-brand li:last-child{border-bottom: 1px solid  #bbb;}
+		.right-menu{position: relative;z-index: 1000;}
+		.right-menu .right-mask{background-color: rgba(0, 0, 0, 0.35);position: fixed;right: 0;top: 0;width: 100%;height: 100%;}
+		.right-menu .right-list{width: 85%;height: 100%;position: absolute;right: 0;top: 0;background-color: #fff;transform: translateX(0%);transition: 0.3s all linear;}
+		.right-list{position: relative;overflow: scroll;}
+		.right-list .right-header{position: fixed;width: 100%;height: 50px;z-index: 101;background-color: #fff;}
+		.right-list i{ position: absolute; top: 18px; left: 15px;display: block; width: 12px; height: 12px; border: 2px solid  #7a7a7a; border-top: 0; border-right: 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
+		.right-list header{ font-size: 18px; color: #111; text-align: center; height: 50px; line-height: 50px; position: absolute; left: 43%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); transform: translateX(-50%); background-color: #fff;}
+		.right-list .list-maker{width: 100%;overflow: hidden;position: relative;top: 50px;z-index: 100;padding-bottom: 20%;}
+		.right-list .list-maker dt{}
+		.right-list .list-maker dl{font-size: 16px;color: #6d6d6d;background-color: #efefef;padding: 10px 12px;}
+		.right-list .list-maker dd a{font-size: 14px;color: #7a7a7a;width: 100%;padding: 12px 38px;display: block;border-bottom: 1px solid  #f1f1f1;}
+	</style>
+</head>
+<body>
+	<!-- 头部 S -->
+	<div class="head-search">
+	    <form class="c-box" id="searchForm" action="m/index!goodsList" method="get" data-query="">
+	    	<input type="hidden" name="querytype" value="">
+	        
+	        <div class="box-table">
+	        	<a href="/m/index!goodsList?filter=1" class="bn-choose vm wsn wh pr9 pl9">
+	        	选车型
+	        	</a>
+	            <strong>
+	                <div class="box-table left">
+	                    <strong>
+	                        <input type="text" id="queryGoodsName" name="queryGoodsName" value="" placeholder="请输入用品/配件名搜索" autocomplete="off" data-val="">
+	                        <label class="close" for="queryGoodsName" style="display: none;"></label>
+	                    </strong>
+	                    <span>
+	                        <button>搜索</button>
+	                    </span>
+	                </div>
+	                
+	                <div class="searchword-expend">
+	                	<span class="bclose"></span>
+	                </div>
+	            </strong>
+	            <a href="/m/index!index?vin=1" class="wh wsn vm pr9 pl9">车架号</a>
+	            
+	        </div>
+	    </form>
+	</div>
+	<!-- 头部 E -->
+	<!-- 热门 S -->
+	<div class="hot-type">
+		<header>热门品牌</header>
+		<div class="hot-list">
+			<div class="row">
+				<ul>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo2.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo3jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<ul>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span><img src="../images/demo/demo1.jpg" alt=""></span>
+							<p>丰田</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 热门 E -->
+	<div class="list-type">
+		<div class="list-brand">
+			<h1>A</h1>
+			<ul>
+				<li>
+					<a href="javascript:;">
+						<div><img src="../images/demo/demo1.jpg" alt=""></div>
+						<span>奥迪</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="list-brand">
+			<h1>A</h1>
+			<ul>
+				<li>
+					<a href="javascript:;">
+						<div><img src="../images/demo/demo1.jpg" alt=""></div>
+						<span>奥迪</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<div><img src="../images/demo/demo1.jpg" alt=""></div>
+						<span>奥迪</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<div><img src="../images/demo/demo1.jpg" alt=""></div>
+						<span>奥迪</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<div><img src="../images/demo/demo1.jpg" alt=""></div>
+						<span>奥迪</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="right-menu">
+		<div class="right-mask">
+			<div class="right-list">
+				<div class="right-header">
+					<i></i>
+					<header>奥迪</header>
+				</div>
+				<div class="list-maker">
+					<dt>
+						<dl>一汽奥迪</dl>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dl>一汽奥迪</dl>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dl>一汽奥迪</dl>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dl>一汽奥迪</dl>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+					</dt>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
