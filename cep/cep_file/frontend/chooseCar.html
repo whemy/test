@@ -10,37 +10,38 @@
 	<meta name="renderer" content="webkit">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="format-detection" content="telphone=no, email=no">
-	<link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico">
-	<link rel="apple-touch-icon" href="/static/images/favicon.png">
 	<link rel="stylesheet" href="../css/app.css">
 	<style type="text/css">
+		#main-type{position: relative;}
 		.hot-type{width: 100%;position: relative;margin-top: 40px;}
 		.hot-type header{font-size: 14px;padding: 10px;border-bottom: 5px solid  #eee;}
-		.hot-list{padding: 1.6rem .8rem;border-bottom: 5px solid  #eee;}
+		.hot-list{padding: 1.6rem 1.4rem 1.6rem 0.8rem;border-bottom: 5px solid  #eee;}
 		.hot-list .row ul{width: 100%;display: table;margin-top: 10px;}
 		.hot-list .row li{width: 20%;display: table-cell;text-align: center;}
-		.hot-list .row li span{display: inline-block;width: 60px;height: 40px;vertical-align: top;}
+		.hot-list .row li span{display: inline-block;width: 4rem;height: 4rem;vertical-align: top;}
 		.hot-list .row li span img{width: 100%;}
-		.hot-list .row li p{font-size: 14px;margin-top: 10px;}
+		.hot-list .row li p{font-size: 14px;margin-top: 5px;}
 		.list-type{position: relative;}
-		.list-type .list-brand{border-bottom: 5px solid  #eee;}
-		.list-type .list-brand h1{font-size: 16px;color: #333;border-bottom: 1px solid  #e8e8e8;margin: 0;padding: 10px 12px;}
-		.list-type .list-brand li{width: 100%;border-bottom: 1px solid  #f1f1f1;}
-		.list-type .list-brand li div{display: inline-block;padding: 12px;width: 30px;height: 30px;}
-		.list-type .list-brand li div img{width: 100%;}
-		.list-type .list-brand li span{font-size: 16px;color: #333;}
-		.list-type .list-brand li:last-child{border-bottom: 1px solid  #bbb;}
-		.right-menu{position: relative;z-index: 1000;}
+		.list-type {border-bottom: 5px solid  #eee;}
+		.list-type  h1{font-size: 16px;color: #333;border-top: 5px solid  #e8e8e8;border-bottom: 1px solid  #e8e8e8;margin: 0;padding: 10px 12px;}
+		.list-type  div.list-brand{width: 100%;border-bottom: 1px solid  #f1f1f1;list-style: none;}
+		.list-type  div.list-brand p{display: inline-block;padding: 12px;width: 30px;height: 30px;vertical-align: middle;}
+		.list-type  div.list-brand p img{width: 100%;}
+		.list-type  div.list-brand span{font-size: 16px;color: #333;vertical-align: middle;}
+		.list-type  li:last-child{border-bottom: 1px solid  #bbb;}
+		.right-menu{position: fixed;top: 0;right: 0;width: 100%;height: 100%;z-index: 1000;}
 		.right-menu .right-mask{background-color: rgba(0, 0, 0, 0.35);position: fixed;right: 0;top: 0;width: 100%;height: 100%;}
-		.right-menu .right-list{width: 85%;height: 100%;position: absolute;right: 0;top: 0;background-color: #fff;transform: translateX(0%);transition: 0.3s all linear;}
+		.right-menu .right-main{transform: translateX(0%);transition: 0.3s all linear;height: 100%;}
+		.right-menu .right-list{width: 85%;height: 100%;position: absolute;right: 0;top: 0;background-color: #fff;}
 		.right-list{position: relative;overflow: scroll;}
 		.right-list .right-header{position: fixed;width: 100%;height: 50px;z-index: 101;background-color: #fff;}
 		.right-list i{ position: absolute; top: 18px; left: 15px;display: block; width: 12px; height: 12px; border: 2px solid  #7a7a7a; border-top: 0; border-right: 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
 		.right-list header{ font-size: 18px; color: #111; text-align: center; height: 50px; line-height: 50px; position: absolute; left: 43%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); transform: translateX(-50%); background-color: #fff;}
 		.right-list .list-maker{width: 100%;overflow: hidden;position: relative;top: 50px;z-index: 100;padding-bottom: 20%;}
-		.right-list .list-maker dt{}
 		.right-list .list-maker dl{font-size: 16px;color: #6d6d6d;background-color: #efefef;padding: 10px 12px;}
 		.right-list .list-maker dd a{font-size: 14px;color: #7a7a7a;width: 100%;padding: 12px 38px;display: block;border-bottom: 1px solid  #f1f1f1;}
+		.initals{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 110;}
+		.trans100p{transform: translateX(100%);}
 	</style>
 </head>
 <body>
@@ -74,128 +75,104 @@
 	    </form>
 	</div>
 	<!-- 头部 E -->
-	<!-- 热门 S -->
-	<div class="hot-type">
-		<header>热门品牌</header>
-		<div class="hot-list">
-			<div class="row">
-				<ul>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo2.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo3jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-				</ul>
+	<div id="main-type">
+		<!-- 热门 S -->
+		<div class="hot-type">
+			<header>热门品牌</header>
+			<div class="hot-list">
+				<div class="row">
+					<ul>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo2.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="row">
+					<ul>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<p>丰田</p>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="row">
-				<ul>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span><img src="../images/demo/demo1.jpg" alt=""></span>
-							<p>丰田</p>
-						</a>
-					</li>
-				</ul>
+		</div>
+		<!-- 热门 E -->
+		<!-- 品牌索引 S -->
+		<div class="list-type">
+			<div class="list-brand">
+				<p><img src="../images/demo/demo1.jpg" alt=""></p>
+				<span>奥迪</span>
 			</div>
 		</div>
+		<!-- 品牌索引 E -->
 	</div>
-	<!-- 热门 E -->
-	<div class="list-type">
-		<div class="list-brand">
-			<h1>A</h1>
-			<ul>
-				<li>
-					<a href="javascript:;">
-						<div><img src="../images/demo/demo1.jpg" alt=""></div>
-						<span>奥迪</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="list-brand">
-			<h1>A</h1>
-			<ul>
-				<li>
-					<a href="javascript:;">
-						<div><img src="../images/demo/demo1.jpg" alt=""></div>
-						<span>奥迪</span>
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<div><img src="../images/demo/demo1.jpg" alt=""></div>
-						<span>奥迪</span>
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<div><img src="../images/demo/demo1.jpg" alt=""></div>
-						<span>奥迪</span>
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<div><img src="../images/demo/demo1.jpg" alt=""></div>
-						<span>奥迪</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="right-menu">
-		<div class="right-mask">
+	<!-- 字母出现 S -->
+	<div id="letter"></div>
+	<!-- 字母出现 E -->
+	<!-- 字母索引 S -->
+	<div class="initals"></div>
+	<!-- 字母索引 E -->
+	<!-- 车系索引 S -->
+	<div class="right-menu" style="display: none;">
+		<div class="right-mask"></div>
+		<div class="right-main">
 			<div class="right-list">
 				<div class="right-header">
-					<i></i>
+					<i id="right-closed"></i>
 					<header>奥迪</header>
 				</div>
 				<div class="list-maker">
@@ -229,5 +206,146 @@
 			</div>
 		</div>
 	</div>
+	<!-- 车系索引 E -->
+	<script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="../js/util/knockout-3.4.0.js" type="text/javascript"></script>
+	<script src="../js/wx/chooseCar.js" type="text/javascript"></script>
+	<script src="../js/wx/makePy.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			var Initials = $('.initals');
+			var letter = $('#letter');
+			Initials.append('<ul><li>A</li><li>B</li><li>C</li><li>D</li><li>E</li><li>F</li><li>G</li><li>H</li><li>I</li><li>J</li><li>K</li><li>L</li><li>M</li><li>N</li><li>O</li><li>P</li><li>Q</li><li>R</li><li>S</li><li>T</li><li>U</li><li>V</li><li>W</li><li>X</li><li>Y</li><li>Z</li></ul>');
+	        var windowHeight=$(window).height();
+	        var InitHeight=windowHeight-50;
+	        Initials.height(InitHeight);
+	        var LiHeight=InitHeight/26;
+	        Initials.find('li').height(LiHeight).css('textAlign','center');
+	        initials();
+
+
+	        function initials() {
+			    var SortList=$(".list-brand");
+			    var SortBox=$(".list-type");
+			    SortList.sort(asc_sort).appendTo('.list-type');
+			    function asc_sort(a, b) {
+			        return makePy($(b).find('span').text().charAt(0))[0].toUpperCase() < makePy($(a).find('span').text().charAt(0))[0].toUpperCase() ? 1 : -1;
+			    }
+
+			    var initials = [];
+			    var num=0;
+			    SortList.each(function(i) {
+			        var initial = makePy($(this).find('span').text().charAt(0))[0].toUpperCase();
+			        if(initial>='A'&&initial<='Z'){
+			            if (initials.indexOf(initial) === -1)
+			                initials.push(initial);
+			        }else{
+			            num++;
+			        }
+			        
+			    });
+
+			    $.each(initials, function(index, value) {//添加首字母标签
+			        SortBox.append('<h1 id="'+ value +'">' + value + '</h1>');
+			    });
+			    if(num!=0){SortBox.append('<h1 id="default">#</h1>');}
+
+			    for (var i =0;i<SortList.length;i++) {//插入到对应的首字母后面
+			        var letter=makePy(SortList.eq(i).find('span').text().charAt(0))[0].toUpperCase();
+			        switch(letter){
+			            case "A":
+			                $('#A').after(SortList.eq(i));
+			                break;
+			            case "B":
+			                $('#B').after(SortList.eq(i));
+			                break;
+			            case "C":
+			                $('#C').after(SortList.eq(i));
+			                break;
+			            case "D":
+			                $('#D').after(SortList.eq(i));
+			                break;
+			            case "E":
+			                $('#E').after(SortList.eq(i));
+			                break;
+			            case "F":
+			                $('#F').after(SortList.eq(i));
+			                break;
+			            case "G":
+			                $('#G').after(SortList.eq(i));
+			                break;
+			            case "H":
+			                $('#H').after(SortList.eq(i));
+			                break;
+			            case "I":
+			                $('#I').after(SortList.eq(i));
+			                break;
+			            case "J":
+			                $('#J').after(SortList.eq(i));
+			                break;
+			            case "K":
+			                $('#K').after(SortList.eq(i));
+			                break;
+			            case "L":
+			                $('#L').after(SortList.eq(i));
+			                break;
+			            case "M":
+			                $('#M').after(SortList.eq(i));
+			                break;
+			            case "O":
+			                $('#O').after(SortList.eq(i));
+			                break;
+			            case "P":
+			                $('#P').after(SortList.eq(i));
+			                break;
+			            case "Q":
+			                $('#Q').after(SortList.eq(i));
+			                break;
+			            case "R":
+			                $('#R').after(SortList.eq(i));
+			                break;
+			            case "S":
+			                $('#S').after(SortList.eq(i));
+			                break;
+			            case "T":
+			                $('#T').after(SortList.eq(i));
+			                break;
+			            case "U":
+			                $('#U').after(SortList.eq(i));
+			                break;
+			            case "V":
+			                $('#V').after(SortList.eq(i));
+			                break;
+			            case "W":
+			                $('#W').after(SortList.eq(i));
+			                break;
+			            case "X":
+			                $('#X').after(SortList.eq(i));
+			                break;
+			            case "Y":
+			                $('#Y').after(SortList.eq(i));
+			                break;
+			            case "Z":
+			                $('#Z').after(SortList.eq(i));
+			                break;
+			            default:
+			                $('#default').after(SortList.eq(i));
+			                break;
+			        }
+			    };
+			    /*$.each(SortList,function(){
+			    	$(this).on('click',function(){
+			    		console.log("1")
+			    		$('.right-menu').css('display','block');
+			    		$('#main-type').css('position','fixed');
+			    	});
+			    })
+			    $('#right-closed').click(function(){
+			    	$('.right-menu').css('display','none');
+			    	$('#main-type').css('position','');
+			    })*/
+			}
+		});
+	</script>
 </body>
 </html>
