@@ -43,6 +43,7 @@
 		.initals{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 110;}
 		.trans100p{transform: translateX(100%);}
 	</style>
+	<script src="../js/util/knockout-3.4.0.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- 头部 S -->
@@ -151,14 +152,41 @@
 			</div>
 		</div>
 		<!-- 热门 E -->
-		<!-- 品牌索引 S -->
-		<div class="list-type">
-			<!-- <div class="list-brand" data-bind="click: ">
-				<p><img src="../images/demo/demo1.jpg" alt=""></p>
-				<span>奥迪</span>
-			</div> -->
+		<!-- ko with:ccvm -->
+		<div data-bind="foreach: typeList">
+			<!-- 品牌索引 S -->
+			<div class="list-type" data-bind="css:{hide: $root.ccvm.currentType() && type()!=$root.ccvm.currentType().name()}">
+				<!-- ko foreach:brand -->
+				<div class="list-brand brand" data-bind="text:name, css{cur: active()}, click: $root.ccvm.setBrand">
+					<p><img src="../images/blank.gif" data-bind="attr:{'data-url':img, title:name, alt:name}"></p>
+					<span></span>
+				</div>
+				<!-- /ko -->
+			</div>
+			<!-- 品牌索引 E -->
+			<!-- 车系索引 S -->
+			<div class="right-menu" data-bind="visible: currentBrand()">
+				<div class="right-mask"></div>
+				<div class="right-main">
+					<div class="right-list">
+						<div class="right-header">
+							<i id="right-closed"></i>
+							<header>奥迪</header>
+						</div>
+						<div class="list-maker" data-bind="foreach: makerList">
+							<dt>
+								<dl data-bind="css:{cur: active()}, click: $root.ccvm.setSeries">一汽奥迪</dl>
+								<!-- ko foreach:series -->
+								<dd><a href="javascript:;" data-bind="text:name"></a></dd>
+								<!-- /ko -->
+							</dt>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /ko -->
 		</div>
-		<!-- 品牌索引 E -->
+		<!-- 车系索引 E -->
 	</div>
 	<!-- 字母出现 S -->
 	<div id="letter"></div>
@@ -166,49 +194,7 @@
 	<!-- 字母索引 S -->
 	<div class="initals"></div>
 	<!-- 字母索引 E -->
-	<!-- 车系索引 S -->
-	<div class="right-menu" style="display: none;">
-		<div class="right-mask"></div>
-		<div class="right-main">
-			<div class="right-list">
-				<div class="right-header">
-					<i id="right-closed"></i>
-					<header>奥迪</header>
-				</div>
-				<div class="list-maker">
-					<dt>
-						<dl>一汽奥迪</dl>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dl>一汽奥迪</dl>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dl>一汽奥迪</dl>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dl>一汽奥迪</dl>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-						<dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-					</dt>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 车系索引 E -->
 	<script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="../js/util/knockout-3.4.0.js" type="text/javascript"></script>
 	<script src="../js/wx/chooseCar.js" type="text/javascript"></script>
 	<script src="../js/wx/makePy.min.js" type="text/javascript"></script>
 </body>
