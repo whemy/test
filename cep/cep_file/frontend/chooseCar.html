@@ -24,14 +24,14 @@
 		.list-type{position: relative;}
 		.list-type {border-bottom: 5px solid  #eee;}
 		.list-type  h1{font-size: 16px;color: #333;border-top: 5px solid  #e8e8e8;border-bottom: 1px solid  #e8e8e8;margin: 0;padding: 10px 12px;}
-		.list-type  div.list-brand{width: 100%;border-bottom: 1px solid  #f1f1f1;list-style: none;}
+		.list-type  div.list-brand{width: 100%;border-bottom: 1px solid  #f1f1f1;list-style: none;cursor: pointer;}
 		.list-type  div.list-brand p{display: inline-block;padding: 12px;width: 30px;height: 30px;vertical-align: middle;}
 		.list-type  div.list-brand p img{width: 100%;}
 		.list-type  div.list-brand span{font-size: 16px;color: #333;vertical-align: middle;}
 		.list-type  li:last-child{border-bottom: 1px solid  #bbb;}
-		.right-menu{position: fixed;top: 0;right: 0;width: 100%;height: 100%;z-index: 1000;}
-		.right-menu .right-mask{background-color: rgba(0, 0, 0, 0.35);position: fixed;right: 0;top: 0;width: 100%;height: 100%;}
-		.right-menu .right-main{transform: translateX(0%);transition: 0.3s all linear;height: 100%;}
+		.right-mask{background-color: rgba(0, 0, 0, 0.35);position: fixed;right: 0;top: 0;width: 100%;height: 100%;display: none;}
+		.right-menu{position: fixed;top: 0;left: 0;width: 100%;height: 100px;z-index: -1;}
+		.right-menu .right-main{transform: translateX(100%);transition: 0.3s all linear;height: 100%;}
 		.right-menu .right-list{width: 85%;height: 100%;position: absolute;right: 0;top: 0;background-color: #fff;}
 		.right-list{position: relative;overflow: scroll;}
 		.right-list .right-header{position: fixed;width: 100%;height: 50px;z-index: 101;background-color: #fff;}
@@ -43,38 +43,9 @@
 		.initials{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 110;}
 		.trans100p{transform: translateX(100%);}
 	</style>
-	<script src="js/util/knockout-3.4.0.js" type="text/javascript"></script>
+	<!-- <script src="js/util/knockout-3.4.0.js" type="text/javascript"></script> -->
 </head>
 <body>
-	<!-- 头部 S -->
-	<div class="head-search">
-	    <form class="c-box" id="searchForm" action="m/index!goodsList" method="get" data-query="">
-	    	<input type="hidden" name="querytype" value="">
-	        
-	        <div class="box-table">
-	        	<a href="/m/index!goodsList?filter=1" class="bn-choose vm wsn wh pr9 pl9">
-	        	选车型
-	        	</a>
-	            <strong>
-	                <div class="box-table left">
-	                    <strong>
-	                        <input type="text" id="queryGoodsName" name="queryGoodsName" value="" placeholder="请输入用品/配件名搜索" autocomplete="off" data-val="">
-	                        <label class="close" for="queryGoodsName" style="display: none;"></label>
-	                    </strong>
-	                    <span>
-	                        <button>搜索</button>
-	                    </span>
-	                </div>
-	                
-	                <div class="searchword-expend">
-	                	<span class="bclose"></span>
-	                </div>
-	            </strong>
-	            <a href="/m/index!index?vin=1" class="wh wsn vm pr9 pl9">车架号</a>
-	            
-	        </div>
-	    </form>
-	</div>
 	<!-- 头部 E -->
 	<div id="main-type">
 		<!-- 热门 S -->
@@ -83,33 +54,33 @@
 			<div class="hot-list">
 				<div class="row">
 					<ul>
-						<li data-bind="click: $root.ccvm.setlll">
+						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田1</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo2.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
@@ -119,31 +90,31 @@
 					<ul>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="images/demo/demo1.jpg" alt=""></span>
+								<span><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
@@ -178,8 +149,7 @@
 			</div>
 			<!-- 品牌索引 E -->
 			<!-- 车系索引 S -->
-		    <div class="right-menu" style="display: none;">
-		        <div class="right-mask"></div>
+		    <div class="right-menu">
 		        <div class="right-main">
 		            <div class="right-list">
 		                <div class="right-header">
@@ -226,8 +196,24 @@
 	<!-- 字母索引 S -->
 	<div class="initials"><ul></ul></div>
 	<!-- 字母索引 E -->
-	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="../../websource/jQuery首字母检索手机通讯录模板/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script src="js/wx/makePy.min.js" type="text/javascript"></script>
 	<script src="js/wx/sort.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			var brand = $('.brand');
+			$(brand).each(function(){
+				$(this).click(function(){
+					console.log($(this).find('span').text())
+					$(mask).fadeIn();
+					$('.right-main').css('transform','translateX(0%)')
+				})
+			})
+			$('#right-closed').click(function(){
+					$('.right-main').css('transform','translateX(100%)')
+					$(mask).fadeOut();
+			})
+		});
+	</script>
 </body>
 </html>
