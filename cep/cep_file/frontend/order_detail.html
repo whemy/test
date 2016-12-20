@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<title>goods_detail</title>
+	<meta name="keywords" content="关键字">
+	<meta name="description" content="描述">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telphone=no, email=no">
+	<link rel="stylesheet" href="../css/app.css">
+	<style type="text/css">
+		.order_detail_header{width: 100%;height: 40px;line-height: 40px;border-bottom: 1px solid  #f0f0f0;}
+		.order_detail_header a{ display: block; width: 12px; height: 12px; border: 2px solid  #7a7a7a;border-top: 0;border-right: 0;position: absolute; top: 15px; left: 20px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg);cursor: pointer;}
+		.order_detail_header div{font-size: 16px;text-align: center;}
+		.order_detail_wrap,.order_module{width: 100%;}
+		.order_item{border-bottom: 1px solid  #f0f0f0;}
+		.order_item .order_add{width: 95%;margin: 18px auto;}
+		.order_item .order_add div{display: inline-block;width: 100%;}
+		.order_item .order_add div h3{display: inline-block;width: 50%;color: #7a7a7a;font-weight: normal;}
+		.order_item .order_add div h3:first-child{text-align: left;}
+		.order_item .order_add div h3:last-child{text-align: right;}
+		.order_item .order_add p{font-size: 14px;color: #7a7a7a;overflow: hidden; text-overflow: ellipsis; word-break: break-all; display: -webkit-box; -webkit-line-clamp: 2; -moz-line-clamp: 2; -ms-line-clamp: 2; -o-line-clamp: 2; line-clamp: 2;-webkit-box-orient: vertical;}
+		.order_item .order_contact{border: 3px solid  #f0f0f0;border-right: 0;border-left: 0;}
+		.order_item .order_contact div{width: 95%;margin: 0 auto;}
+		.order_item .order_contact h1{display: inline-block;font-size: 14px;font-weight: normal;color: #7a7a7a;width: 49%;}
+		.order_item .order_prod{display:-webkit-box;width: 95%;margin: 10px auto;box-sizing:border-box;}
+		.order_item .order_prod img{width: 100%;height: 100%;}
+		.order_item .order_prod .prod_pic{width: 4rem;height: 4rem;margin-right: .5rem;}
+		.order_item .order_prod .prod_name{ -webkit-box-flex: 1; -moz-box-flex: 1; -ms-box-flex: 1; -o-box-flex: 1; box-flex: 1; }
+		.order_item .order_prod .prod_name p{overflow: hidden;text-overflow: ellipsis;word-break: break-all;-webkit-line-clamp: 2; -moz-line-clamp: 2; -ms-line-clamp: 2; -o-line-clamp: 2; line-clamp: 2;}
+		.order_item .order_prod .prod_price{ width: 6rem; text-align: right; display: -webkit-box; display: -moz-box; display: -ms-box; display: -o-box; display: box; -webkit-box-orient: vertical; }
+		.order_item .order_trans{margin: 5px 0;}
+		.order_item .order_trans dl{width: 95%;margin: 5px auto 8px;}
+		.order_item .order_trans dl dt{float: left;}
+		.order_item .order_trans dl dd{float: right;}
+		.order_item .order_message{width: 95%;margin: 10px auto;}
+		.order_item .order_message p{color: #aaa;margin-bottom: 5px;display: -webkit-box;}
+		.order_item .order_message p em,.order_item .order_message p span{}
+		.order_item .order_message p em{width: 25%;display: block;}
+		.order_item .order_message p span{width: 75%;overflow: hidden;text-overflow: ellipsis;word-break: break-all;-webkit-line-clamp: 2; -moz-line-clamp: 2; -ms-line-clamp: 2; -o-line-clamp: 2; line-clamp: 2;}
+	</style>
+</head>
+<body>
+	<header class="order_detail_header">
+		<a href="javascript:void(0);"></a>
+		<div>订单详情</div>
+	</header>
+	<div class="order_detail_wrap">
+		<div class="order_module">
+			<div class="order_item">
+				<div class="order_add">
+					<div>
+						<h3>收货人:xxx</h3><h3>电话:18989895656</h3>
+					</div>
+					<p>广东省 广州市 天河区 东益汽配xxxxxxxxxxxxxxxxxxxx</p>
+				</div>
+			</div>
+			<div class="order_item">
+				<div class="order_contact">
+					<div>
+						<h1>下单人:xxxxx</h1>
+						<h1>联系方式:18989895656</h1>
+					</div>
+				</div>
+			</div>
+			<div class="order_item">
+				<div class="order_prod">
+					<div class="prod_pic webpack"><img src="../images/demo/demo1.jpg" alt=""></div>
+					<div class="prod_name"><p class="webbox">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></div>
+					<div class="prod_price">¥19999</div>
+				</div>
+			</div>
+			<div class="order_item">
+				<div class="order_trans">
+					<dl class="fix">
+						<dt>运费</dt>
+						<dd>100</dd>
+					</dl>
+					<dl class="fix">
+						<dt>付款</dt>
+						<dd>xxxx</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="order_item">
+				<div class="order_message">
+					<p><em>订单来源 :</em><span>xxxxxxxxxxxxxxxx</span></p>
+					<p><em>订单编号 :</em><span>xxxxxxxxxxxxxxxx</span></p>
+					<p><em>创建时间 :</em><span>xxxxxxxxxxxxxxxx</span></p>
+					<p><em>备忘 :</em><span class="webpack">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

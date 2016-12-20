@@ -71,29 +71,29 @@
 		ko.applyBindings(viewModel); 
 	</script>-->
 
-	<ul data-bind="foreach:dataM">
+	<!-- <ul data-bind="foreach:dataM">
 	    <li>
 	        <p data-bind="text:name"></p>
 	        <ul data-bind="foreach:contains">
 	            <li>
 	                <p><span data-bind="text:name"></span>属于<span data-bind="text:$parent.name"></span></p>
-	                <ul data-bind="foreach:else">
-	                	<li>
-		                	<p><span data-bind="text:name"></span></p>
-	                	</li>
-	                </ul>
 	            </li>
 	        </ul>
+	            <ul data-bind="foreach:elsey">
+	            	<li>
+	                	<p><span data-bind="text:name"></span></p>
+	            	</li>
+	            </ul>
 	    </li>
 	</ul>
 	<script type="text/javascript">
 		var dataM = [
-		    { name:"水果",race:'fruit',contains:[ { name:"苹果",work:"苹果的作用",alias:"apple",else:[ {name:"a",age:""},{name:"aa",age:""} ] },{ name:"香蕉",work:"香蕉的作用",alias:"banana",else:[ {name:"b",age:""},{name:"bb",age:""} ] } ] },
-		    { name:"蔬菜",race:'vagetable',contains:[ {name:"青菜",work:"青菜的作用",alias:"qingcai",else:[ {name:"c",age:""},{name:"cc",age:""} ] },{name:"白菜",word:"白菜的作用",alias:"baicai",else:[ {name:"d",age:""},{name:"dd",age:""} ] } ] }
+		    { name:"水果",race:'fruit',contains:[{name:"苹果",work:"苹果的作用",alias:"apple"},{name:"香蕉",work:"香蕉的作用",alias:"banana"}],elsey:[{name:"a",age:""},{name:"aa",age:""}] },
+		    { name:"蔬菜",race:'vagetable',contains:[{name:"青菜",work:"青菜的作用",alias:"qingcai"},{name:"白菜",word:"白菜的作用",alias:"baicai"}],elsey:[ {name:"b",age:""},{name:"bb",age:""}]}
 		]; 
 		ko.applyBindings();
-
-	</script>
+	
+	</script> -->
 	<!-- <ul data-bind="foreach:arr">
 	    <li><span data-bind="text:$index"></span>:<span data-bind="text:$data"></span></li>
 	</ul>
@@ -103,7 +103,7 @@
 	</script> -->
 
 
-	<!-- <p>姓名：<span data-bind="text:$root.name"></span>，年龄：<span data-bind="text:$root.age"></span></p>
+	<p>姓名：<span data-bind="text:$root.name"></span>，年龄：<span data-bind="text:$root.age"></span></p>
 	<script type="text/javascript">
 		function Person(name,age){
 		    this.name = ko.observable(name);
@@ -111,7 +111,7 @@
 		}
 		var person = new Person("tom",18);
 		ko.applyBindings(person);
-	</script> -->
+	</script>
 
 	<script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
 	<!-- <script src="../js/wx/chooseCar.js" type="text/javascript"></script> -->
