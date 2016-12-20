@@ -21,7 +21,8 @@
 		.hot-list .row li span{display: inline-block;width: 4rem;height: 4rem;vertical-align: top;}
 		.hot-list .row li span img{width: 100%;}
 		.hot-list .row li p{font-size: 14px;margin-top: 5px;}
-		.list-type{position: relative;border-bottom: 5px solid  #eee;}
+		.list-type{position: relative;}
+		.list-type {border-bottom: 5px solid  #eee;}
 		.list-type  h1{font-size: 16px;color: #333;border-top: 5px solid  #e8e8e8;border-bottom: 1px solid  #e8e8e8;margin: 0;padding: 10px 12px;}
 		.list-type  div.list-brand{width: 100%;border-bottom: 1px solid  #f1f1f1;list-style: none;cursor: pointer;}
 		.list-type  div.list-brand p{display: inline-block;padding: 12px;width: 30px;height: 30px;vertical-align: middle;}
@@ -29,16 +30,17 @@
 		.list-type  div.list-brand span{font-size: 16px;color: #333;vertical-align: middle;}
 		.list-type  li:last-child{border-bottom: 1px solid  #bbb;}
 		.right-mask{background-color: rgba(0, 0, 0, 0.35);position: fixed;right: 0;top: 0;width: 100%;height: 100%;display: none;}
-		.right-menu{position: fixed;top: 0;left: 0;width: 100%;height: 100%;-webkit-transform: translateX(100%);transform: translateX(100%);transition: 0.3s all linear;z-index: 2;}
+		.right-menu{position: fixed;top: 0;left: 0;width: 100%;height: 100px;z-index: -1;}
+		.right-menu .right-main{transform: translateX(100%);transition: 0.3s all linear;height: 100%;}
 		.right-menu .right-list{width: 85%;height: 100%;position: absolute;right: 0;top: 0;background-color: #fff;}
 		.right-list{position: relative;overflow: scroll;}
-		.right-list .right-header{position: fixed;width: 100%;height: 50px;background-color: #fff;z-index: 3;}
-		.right-list i{ position: absolute; top: 18px; left: 25px;display: block; width: 12px; height: 12px; border: 2px solid  #7a7a7a; border-top: 0; border-right: 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg);cursor: pointer; }
+		.right-list .right-header{position: fixed;width: 100%;height: 50px;z-index: 101;background-color: #fff;}
+		.right-list i{ position: absolute; top: 18px; left: 15px;display: block; width: 12px; height: 12px; border: 2px solid  #7a7a7a; border-top: 0; border-right: 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
 		.right-list header{ font-size: 18px; color: #111; text-align: center; height: 50px; line-height: 50px; position: absolute; left: 43%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); transform: translateX(-50%); background-color: #fff;}
-		.right-list .list-maker{width: 100%;overflow: hidden;position: relative;top: 50px;padding-bottom: 20%;}
+		.right-list .list-maker{width: 100%;overflow: hidden;position: relative;top: 50px;z-index: 100;padding-bottom: 20%;}
 		.right-list .list-maker dt{font-size: 16px;color: #6d6d6d;background-color: #efefef;padding: 10px 12px;}
 		.right-list .list-maker dd a{font-size: 14px;color: #7a7a7a;width: 100%;padding: 12px 38px;display: block;border-bottom: 1px solid  #f1f1f1;}
-		.initials{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 1;}
+		.initials{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 110;}
 		.trans100p{transform: translateX(100%);}
 	</style>
 	<!-- <script src="js/util/knockout-3.4.0.js" type="text/javascript"></script> -->
@@ -121,71 +123,72 @@
 			</div>
 		</div>
 		<!-- 热门 E -->
-		<!-- 品牌索引 S -->
-		<div class="list-type">
-			<div class="list-brand brand">
-				<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
-				<span>dfaas</span>
+		<div>
+			<!-- 品牌索引 S -->
+			<div class="list-type">
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>dfaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>wfaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>qefaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>hthfaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>azdfas</span>
+				</div>
 			</div>
-			<div class="list-brand brand">
-				<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
-				<span>wfaas</span>
-			</div>
-			<div class="list-brand brand">
-				<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
-				<span>qefaas</span>
-			</div>
-			<div class="list-brand brand">
-				<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
-				<span>hthfaas</span>
-			</div>
-			<div class="list-brand brand">
-				<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
-				<span>azdfas</span>
-			</div>
+			<!-- 品牌索引 E -->
+			<!-- 车系索引 S -->
+		    <div class="right-menu">
+		        <div class="right-main">
+		            <div class="right-list">
+		                <div class="right-header">
+		                    <i id="right-closed"></i>
+		                    <header>奥迪</header>
+		                </div>
+		                <div class="list-maker">
+		                    <dl>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                    </dl>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
 		</div>
-		<!-- 品牌索引 E -->
-		<!-- 车系索引 S -->
-	    <div class="right-menu">
-	        <div class="right-main">
-	            <div class="right-list">
-	                <div class="right-header">
-	                    <i id="right-closed"></i>
-	                    <header>奥迪</header>
-	                </div>
-	                <div class="list-maker">
-	                    <dl>
-	                        <dt>一汽奥迪</dt>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dt>一汽奥迪</dt>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dt>一汽奥迪</dt>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dt>一汽奥迪</dt>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
-	                    </dl>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
 		<!-- 车系索引 E -->
-		<div class="right-mask"></div>
 	</div>
 	<!-- 字母出现 S -->
 	<div id="letter"></div>
@@ -202,15 +205,13 @@
 			$(brand).each(function(){
 				$(this).click(function(){
 					console.log($(this).find('span').text())
-					$('.right-mask').fadeIn();
-					$('.right-menu').css('transform','translateX(0%)');
-					$('.list-type').css('position','fixed');
+					$(mask).fadeIn();
+					$('.right-main').css('transform','translateX(0%)')
 				})
 			})
 			$('#right-closed').click(function(){
-					$('.right-menu').css('transform','translateX(100%)');
-					$('.list-type').css('position','');
-					$('.right-mask').fadeOut();
+					$('.right-main').css('transform','translateX(100%)')
+					$(mask).fadeOut();
 			})
 		});
 	</script>
