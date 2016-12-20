@@ -10,7 +10,7 @@
 	<meta name="renderer" content="webkit">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="format-detection" content="telphone=no, email=no">
-	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="css/app.css">
 	<style type="text/css">
 		#main-type{position: relative;}
 		.hot-type{width: 100%;position: relative;margin-top: 40px;}
@@ -38,12 +38,12 @@
 		.right-list i{ position: absolute; top: 18px; left: 15px;display: block; width: 12px; height: 12px; border: 2px solid  #7a7a7a; border-top: 0; border-right: 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
 		.right-list header{ font-size: 18px; color: #111; text-align: center; height: 50px; line-height: 50px; position: absolute; left: 43%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); transform: translateX(-50%); background-color: #fff;}
 		.right-list .list-maker{width: 100%;overflow: hidden;position: relative;top: 50px;z-index: 100;padding-bottom: 20%;}
-		.right-list .list-maker dl{font-size: 16px;color: #6d6d6d;background-color: #efefef;padding: 10px 12px;}
+		.right-list .list-maker dt{font-size: 16px;color: #6d6d6d;background-color: #efefef;padding: 10px 12px;}
 		.right-list .list-maker dd a{font-size: 14px;color: #7a7a7a;width: 100%;padding: 12px 38px;display: block;border-bottom: 1px solid  #f1f1f1;}
-		.initals{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 110;}
+		.initials{position: fixed;right: 0;width: 15px;padding-right: 5px;top: 50px;z-index: 110;}
 		.trans100p{transform: translateX(100%);}
 	</style>
-	<script src="../js/util/knockout-3.4.0.js" type="text/javascript"></script>
+	<script src="js/util/knockout-3.4.0.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- 头部 S -->
@@ -85,31 +85,31 @@
 					<ul>
 						<li data-bind="click: $root.ccvm.setlll">
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田1</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo2.jpg" alt=""></span>
+								<span><img src="images/demo/demo2.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
@@ -119,31 +119,31 @@
 					<ul>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
 						<li>
 							<a href="javascript:;">
-								<span><img src="../images/demo/demo1.jpg" alt=""></span>
+								<span><img src="images/demo/demo1.jpg" alt=""></span>
 								<p>丰田</p>
 							</a>
 						</li>
@@ -152,39 +152,71 @@
 			</div>
 		</div>
 		<!-- 热门 E -->
-		<!-- ko with:ccvm -->
-		<div data-bind="foreach: typeList">
+		<div>
 			<!-- 品牌索引 S -->
-			<div class="list-type" data-bind="css:{hide: $root.ccvm.currentType() && type()!=$root.ccvm.currentType().name()}">
-				<!-- ko foreach:brand -->
-				<div class="list-brand brand" data-bind="text:name, css{cur: active()}, click: $root.ccvm.setBrand">
-					<p><img src="../images/blank.gif" data-bind="attr:{'data-url':img, title:name, alt:name}"></p>
-					<span></span>
+			<div class="list-type">
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>dfaas</span>
 				</div>
-				<!-- /ko -->
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>wfaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>qefaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>hthfaas</span>
+				</div>
+				<div class="list-brand brand">
+					<p><img src="../../websource/jQuery首字母检索手机通讯录模板/img/img.png"></p>
+					<span>azdfas</span>
+				</div>
 			</div>
 			<!-- 品牌索引 E -->
 			<!-- 车系索引 S -->
-			<div class="right-menu" data-bind="visible: currentBrand()">
-				<div class="right-mask"></div>
-				<div class="right-main">
-					<div class="right-list">
-						<div class="right-header">
-							<i id="right-closed"></i>
-							<header>奥迪</header>
-						</div>
-						<div class="list-maker" data-bind="foreach: makerList">
-							<dt>
-								<dl data-bind="css:{cur: active()}, click: $root.ccvm.setSeries">一汽奥迪</dl>
-								<!-- ko foreach:series -->
-								<dd><a href="javascript:;" data-bind="text:name"></a></dd>
-								<!-- /ko -->
-							</dt>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /ko -->
+		    <div class="right-menu" style="display: none;">
+		        <div class="right-mask"></div>
+		        <div class="right-main">
+		            <div class="right-list">
+		                <div class="right-header">
+		                    <i id="right-closed"></i>
+		                    <header>奥迪</header>
+		                </div>
+		                <div class="list-maker">
+		                    <dl>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dt>一汽奥迪</dt>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                        <dd><a href="javascript:;">一汽奥迪A6L</a></dd>
+		                    </dl>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
 		</div>
 		<!-- 车系索引 E -->
 	</div>
@@ -192,10 +224,10 @@
 	<div id="letter"></div>
 	<!-- 字母出现 E -->
 	<!-- 字母索引 S -->
-	<div class="initals"></div>
+	<div class="initials"><ul></ul></div>
 	<!-- 字母索引 E -->
-	<script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="../js/wx/chooseCar.js" type="text/javascript"></script>
-	<script src="../js/wx/makePy.min.js" type="text/javascript"></script>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="js/wx/makePy.min.js" type="text/javascript"></script>
+	<script src="js/wx/sort.js" type="text/javascript"></script>
 </body>
 </html>
