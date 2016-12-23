@@ -1,0 +1,69 @@
+.fs14{font-size:14px;}
+.fs15{font-size:15px;}
+
+.inquiry-seg{border-bottom:5px solid #dfdfdf;}
+/* .inquiry-seg:after{content:'';display:block;height:4px;font-size:0;border:solid #ccc;border-width:1px 0;background:#dfdfdf;} */
+
+/* 选择配件 */
+.inquiry-parts{overflow:auto;padding:0 10px 8px;min-height: 34px;}
+.inquiry-parts.err{border:2px solid #f44}
+.inquiry-parts p{padding-top:8px}
+.inquiry-parts a,.text-parts a{display:inline-block;padding:5px;border:1px solid #ccc;border-radius:4px;margin:8px 10px 0 0;position:relative}
+.text-parts a{padding:0 5px;line-height:30px;margin-top:0;margin-bottom:5px;}
+.inquiry-parts a:after,.text-parts a:after{content:'+';font-size:7px;position:absolute;right:-5px;bottom:-2px;display:inline-block;border-radius:5px;background:#f44;color:#fff;width:10px;height:10px;line-height:10px;text-align:center;vertical-align:top;}
+.inquiry-parts span{line-height:26px;display:inline-block;margin-top:8px}
+
+/* 选择车型 */
+.inquiry-car{padding:40px 20px 20px;}
+.inquiry-car .line{width: 100%;border-bottom: 1px solid #e9e9e9;}
+.inquiry-car .line:last-child{border-bottom: 0;}
+.inquiry-car .line-item{display: block;font-size: 1.2rem;line-height: 30px;}
+.inquiry-car .line-input{display: inline-block;-webkit-box-orient:vertical;width: 68%;}
+.inquiry-car .line-input input{display: inline-block;height: 90%;padding-left: 15px;margin: 0;border: 0;outline: 0;font-size: 1.2rem;}
+.inquiry-car .line-input a{display: inline-block;position: relative;font-size: 1.2rem;color: #0ba9ea;line-height: 2.2;margin-left: 15px;margin-right: 12px;}
+.inquiry-car .line-input a:after{content: '';position: absolute;top: 12px;right: -10px;width: 5px;height: 5px;border: 2px solid  #b4b4b4;border-top: 0;border-left: 0;transform:rotate(-45deg);display: block;}
+
+.inquiry-car .btn{width:80px;margin-right:10px;background:#30b6f5;border-color:#30b6f5;vertical-align:top;}
+.inquiry-car .text{line-height:30px;vertical-align:top;font-size: 1.2rem;color: #cacaca;text-align: right;}
+
+.add_parts{padding: 20px;}
+.add_parts a.add_parts_title{display: block;font-size: 1.2rem;line-height: 1.8;}
+.add_parts a.add_parts_title:before{content: '+';font-size: 1.3rem;color: #fff;background-color: #ff4546;padding: 1px 5px;margin-right: 8px;vertical-align: bottom;	border-radius: 50%;}
+.add_parts .add_parts_bg{background-color: #efefef;border-radius: 3px;padding: 10px 12px;margin-top: 10px;}
+
+/* 照片上传 */
+.inquiry-photo{padding:0 8px 10px}
+.inquiry-photo .img-box{ overflow:hidden; display: inline-block;}
+.inquiry-photo .img{float:left;width:70px;height:70px;overflow:hidden;position:relative;}
+.inquiry-photo .img img{width:80%;display:block;text-align: center;margin: auto;}
+.inquiry-photo .img .del{display: inline-block;position: absolute;z-index: 4;background:#f44;color:#fff;width: 18px;height: 18px;border-radius:9px;text-align: center;line-height: 0.8;right: 2px;top: 2px;}
+.inquiry-photo .img .del:after{content:'+';-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);display: block;font-size: 24px;}
+.inquiry-photo .isOneImg{width: 70px;height: 70px;border: 1px solid  #e6e6e6;border-radius: 1px;}
+.inquiry-photo .isOneImg img{width: 30px;height: 30px;display: block;margin: auto;margin-top: 20px;}
+
+.inquiry-photo{padding: 20px;}
+.inquiry-photo .upload-label{display: block;font-size: 1.2rem;line-height: 1.8;}
+.inquiry-photo .upload-label:before{content: '+';font-size: 1.3rem;color: #fff;background-color: #ff4546;padding: 1px 5px;margin-right: 8px;vertical-align: bottom;	border-radius: 50%;}
+.add_parts .add_parts_bg{background-color: #efefef;border-radius: 3px;padding: 10px 12px;margin-top: 10px;}
+.inquiry-photo [type=file]{width:1px;height:1px;}
+
+.inquiry-photo .btn{width: 22.7%;margin-right:3%;float:left;}
+.inquiry-photo .btn:last-child{margin-right:0}
+
+/* 类型配件 */
+.inquiry-type{padding:8px 10px}
+
+/* 留言 */
+.inquiry-message{padding:10px;overflow:hidden}
+.inquiry-message .record-btn{width:40px;height:40px;background:#efefef url(../images/wx/inquiry/sound.png) no-repeat 50%;background-size: 24px auto;border:1px solid #bcbcbc;border-radius:20px;}
+.inquiry-message .msg-textarea{position:relative;background:#efefef;border:1px solid #bcbcbc;border-radius:4px;margin-left:60px;}
+.inquiry-message .msg-textarea:before,.inquiry-message .msg-textarea:after{position:absolute;top:50%;right:100%;margin-top:-6px;content:'';display:inline-block;width:0;height:0;border-style:solid;border-color:transparent #bcbcbc transparent transparent;border-width:6px 6px 6px 0}
+.inquiry-message .msg-textarea:after{border-right-color:#efefef;margin-right:-1px;}
+.inquiry-message textarea{display:block;width:100%;height:40px;background:#efefef;line-height:1.4;padding:12px 10px;border:none;box-sizing:border-box;resize:none;border-radius:4px;outline: 0;}
+
+.inquiry-sound-box{padding: 0 10px;}
+.sound-box .sound-record{margin-bottom:10px;margin-top:10px;}
+
+.inquiry-submit{width:260px;margin:auto;border-radius:6px;}
+.brand-box [type=date]{width:100%;text-align:center;border:none}
+.page-box.active{z-index:99}
