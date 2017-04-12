@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>html5 图片上传预览</title>
+    <style>
+        #preview {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        #preview img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+   	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function preview1(file) {
+            var img = new Image(), url = img.src = URL.createObjectURL(file)
+            var $img = $(img)
+            img.onload = function() {
+                URL.revokeObjectURL(url)
+                $('#preview').empty().append($img)
+            }
+        }
+        function preview2(file) {
+            var reader = new FileReader()
+            reader.onload = function(e) {
+                var $img = $('<img>').attr("src", e.target.result)
+                $('#preview').empty().append($img)
+            }
+            reader.readAsDataURL(file)
+        }
+         
+        $(function() {
+            $('[type=file]').change(function(e) {
+                var file = e.target.files[0]
+                preview1(file)
+            })
+        })
+    </script>
+</head>
+<body>
+<form enctype="multipart/form-data" action="" method="post">
+    <input type="file" name="imageUpload"/>
+    <div id="preview" style="width: 300px;height:300px;border:1px solid gray;"></div>
+</form>
+<div id="top"> 
+<p>第三届全国少年儿童书信文化活动，在省各级教育局、团委、少工委及邮政公司的认真发动、精心组织下，得到了全省中小学校的积极支持，广大少年儿童的热烈响应，全省共收到参赛书信作品250余万封。为更好地组织和引导全省广大少先队员积极参与，把今后的书信写作活动开展得更为生动、有效，提高未成年人综合素质，6月26日，常熟市第二届少儿书信节暨第四届全国少儿书信文化活动常熟赛区活动在石梅小学正式启动，团市委副书记季黎明同志以及各主办单位领导、获奖学生等参加了启动仪式。</p> 
+<p>在启动仪式上，季书记对常熟市首届少儿书信节暨第三届全国少儿书信文化活动常熟赛区活动进行了总结，并对第四节全国少儿书信文化活动常熟赛区活动提出了希望。他要求围绕本次活动主题，及时抓住纪念改革开放30周年的有利契机，充分利用资源，在少年儿童中广泛开展“祖国发展我成长”、“红领巾与改革开放同行”等教育活动，让广大少年儿童感受改革开放的幸福，接受一次生动活泼的改革开放教育。</p> 
+<p>在启动仪式上，季书记对常熟市首届少儿书信节暨第三届全国少儿书信文化活动常熟赛区活动进行了总结，并对第四节全国少儿书信文化活动常熟赛区活动提出了希望。他要求围绕本次活动主题，及时抓住纪念改革开放30周年的有利契机，充分利用资源，在少年儿童中广泛开展“祖国发展我成长”、“红领巾与改革开放同行”等教育活动，让广大少年儿童感受改革开放的幸福，接受一次生动活泼的改革开放教育。</p> 
+</div> 
+<div id="ddd">
+	<h1>lsafjd</h1>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</div>
+<script type="text/javascript"> 
+    $(function(){ 
+        console.log($("#ddd").outerHeight()); 
+    } )
+</script> 
+<html>
+<body>
+<p> 
+  <label>请选择一个图像文件：</label> 
+  <input type="file" id="file_input" /> 选择图片的input按钮
+</p>  
+<div id="rrr"></div>
+</body>
+<script>
+  var aaa = document.getElementById("rrr"); //获取显示图片的div元素
+var input = document.getElementById("file_input"); //获取选择图片的input元素
+     
+     //这边是判断本浏览器是否支持这个API。
+if(typeof FileReader==='undefined'){ 
+   aaa.innerHTML = "抱歉，你的浏览器不支持 FileReader"; 
+   input.setAttribute('disabled','disabled'); 
+}else{ 
+   input.addEventListener('change',readFile,false); //如果支持就监听改变事件，一旦改变了就运行readFile函数。
+} 
+function readFile(){ 
+   var file = this.files[0]; //获取file对象
+   //判断file的类型是不是图片类型。
+   if(!/image\/\w+/.test(file.type)){ 
+       alert("文件必须为图片！"); 
+       return false; 
+   } 
+   
+   var reader = new FileReader(); //声明一个FileReader实例
+   reader.readAsDataURL(file); //调用readAsDataURL方法来读取选中的图像文件
+   //最后在onload事件中，获取到成功读取的文件内容，并以插入一个img节点的方式显示选中的图片
+   reader.onload = function(e){ 
+       aaa.innerHTML = '<img src="'+this.result+'" alt=""/>' 
+   } 
+   console.log(this,this.result)
+}
+</script>
+<style>  
+    .customInput{ width: 250px; margin-left: 100px; margin-top: 100px; }  
+    .customInput .inputDiv{ width: 250px; margin: 0px; }  
+    .customInput .inputDiv input{ width: 88%; height: 28px; display: block; float: left; border-right-width: 0px; border-bottom-left-radius: 5px; border-top-left-radius: 5px; }  
+    .inputHover{ border-bottom-left-radius: 0px; }  
+    .listBtnHover{ border-bottom-right-radius: 0px; }  
+    .customInput .inputDiv .listBtn{ width: 12%; height: 28px; display: block; float: left; border-bottom-right-radius: 5px; border-top-right-radius: 5px; }  
+    .customInput .selectDiv{ width:100%; }  
+    .hidden{ display: none; }  
+    .customInput .selectDiv ul{ margin: 0px; padding: 0px; border: solid 1px #000000; height: 200px; width:100%; overflow-y: scroll; }  
+    .customInput .selectDiv ul li{ text-align: left; padding: 6px 0px 8px 8px; height:28px; list-style: none; }  
+    .customInput .selectDiv ul li:hover{ background-color: cornflowerblue; }  
+</style>  
+<div class="customInput">  
+    <div class="inputDiv">  
+        <input type="text" id="text" name="text"  />  
+        <button class="listBtn">  
+            <b class="arrow glyphicon glyphicon-menu-down pull-right black" style="color: #000000;"></b>  
+        </button>  
+    </div>  
+    <div class="selectDiv">  
+        <ul class="hidden">  
+            <li>111</li>  
+            <li>111</li>  
+            <li>111</li>  
+            <li>111</li>  
+        </ul>  
+    </div>  
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div> 
+<script type="text/javascript">
+	$(function() {
+		$(".customInput").mouseover(function(){  
+            $(".customInput .selectDiv ul").removeClass('hidden');  
+        });  
+        $(".customInput").mouseout(function(){  
+            $(".customInput .selectDiv ul").addClass('hidden');  
+        });  
+        $(".customInput .selectDiv ul li").click(function(){  
+            $(".customInput .inputDiv input").val($(this).text());  
+            $(".customInput .selectDiv ul").addClass('hidden');  
+        });  
+	});
+</script> 
+</html>
+</body>
+</html>
