@@ -7,13 +7,26 @@
 		*{margin: 0;padding: 0;list-style: none;}
 		html,body,section{width: 100%;height: 100%;position: fixed;top: 0;left: 0;}
 		.canvas-box{position: absolute;z-index: -1;height: 100%;}
-		.box{width: 1280px;height: 800px;position: absolute;z-index: 20;}
+		.box{width: 1080px;height: 500px;position: absolute;z-index: 20;}
+		.line-c{width: 1px;height: 50%;position: absolute;left: 50%;background-color: #123456;animation: linec 1s 1;}
+		/* .line-c:before{content: '';position: absolute;top: 0;left: -4px;width: 9px;height: 9px;background-color: rgba(18,52,86,0.88);border-radius: 50%;} */
+		@keyframes linec{
+			from{top: 200px;height: 0;opacity: 0;}
+			to{top: 0;height: 50%;opacity: 1;}
+		}
+		@-webkit-keyframes linec{
+			from{top: 200px;height: 0;opacity: 0;}
+			to{top: 0;height: 50%;opacity: 1;}
+		}
+		.line-s{position: absolute;top: -20px;left: 55%;width: 10%;height: 1px;background-color: #123456;transform: rotate(5deg);}
+		/* .line-s:before{content: '';position: absolute;top: 50%;left: 50%;} */
 		.border{position: absolute;}
-		.border:after{content: '';position: absolute;top: 0;right: 0;bottom: 0;left: 0;border: 1px solid rgba(0,0,0,.85);border-radius: 5px;}
+		.border:after{content: '';position: absolute;top: 0;right: 0;bottom: 0;left: 0;border: 1px solid rgba(0,0,0,.85);border-radius: 5px !important;}
 		.l50p{left: 50%;-webkit-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);}
 		.tl50p{top: 50% !important;left: 50% !important;-webkit-transform: translate3d(-50%,-50%,0);-ms-transform: translate3d(-50%,-50%,0);-o-transform: translate3d(-50%,-50%,0);transform: translate3d(-50%,-50%,0);}
+		.box-animate{top: 70px;opacity: 0;transition-duration: 1s;}
 		.box-item:after{border-radius: 50%;}
-		.box-center,.box-side{width: 60px;height: 60px;overflow: hidden;top: -50px;z-index: 30;}
+		.box-center,.box-side{width: 40px;height: 40px;z-index: 30;}
 		.box-item span{ width:100%; height:100%; display: block; -webkit-background-size: 100% 100%; background-size: 100% 100%; background-position: center center; background-repeat: no-repeat; -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; }
 	</style>
 </head>
@@ -21,66 +34,69 @@
 	<section>
 		<canvas id="canvas-box" class="canvas-box"></canvas>
 		<div class="box l50p">
-			<div class="box-item side0"><div class="box-center l50p border"><span data-src="xx.jpg"></span></div></div>
+			<div class="box-item side0">
+				<div class="box-center l50p border"><span data-src="./images/xx.jpg"></span></div>
+			</div>
 			<div class="box-item side1">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<!-- <div class="line-c"></div> -->
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side2">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side3">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side4">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side5">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side6">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side7">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side8">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side9">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side10">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side11">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side12">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side13">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side14">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side15">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side16">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side17">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side18">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side19">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side20">
-				<div class="box-side l50p border"><span data-src="xx.jpg"></span></div>
+				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 		</div>
 	</section>
@@ -98,70 +114,90 @@
 				a = Math.floor(l/2),
 				b = Math.ceil(l/2),
 				bcw,bch,
-				biw = bh-sw;
-			console.log(bw,bh,sw);
+				biw = bh-sw,
+				lineCenter = '<div class="line-c"></div>';
+				height = ['','189','344','0','575','189','344','160','275','189','344','460','275','189','344','460','275','189','344','460','275']
+			console.log(bw,bh,sw,l);
 
 			_h = $('body').outerHeight()
 			$('.box').css('top',(_h - bh)/2 + 'px');
-			$('.canvas-box').css({
-				// 'width':bw
-				// 'height':bh
-			})
 
+			/*var _side = 1;
+			var span = $('.side'+_side).find('span')
+			var _bgi = span.data('src');
+			var height = height[_side];
+			$('.side'+_side).css({
+				'position' : 'absolute',
+				'top' : (bh - height)/2,
+				'left' : '50%',
+				'width' : height,
+				'height' : height,
+				'marginLeft' : '-'+height/2+'px',
+				'transform':'rotate('+ (_side-1)*360/l +'deg)'
+			}).prepend(lineCenter);
+
+			span.css({
+				'backgroundImage': 'url('+_bgi+')'
+			});
+			$('.side'+_side).find('.box-side').css({
+				'transform':'rotate('+ -(_side-1)*360/l +'deg)',
+				'marginLeft':'-'+ sw/2 +'px'
+			}).animate({
+				'top': '-50px',
+				'opacity':1
+			});
+*/
 			item.each(function(i,o){
 				var span = $(this).find('span')
 				var bgi = span.data('src');
+				// var _height = height[i];
+				var _height = Math.random() * 500 + 40;
+				if(_height < center.outerWidth()){
+					_height += center.outerWidth();
+				}
 				if(!$(this).hasClass('side'+i)){
 					return false;
 				}
-				$(this).css({
-					'width' : biw,
-					'height' : biw,
-					'position' : 'absolute',
-					'top' : sw/2,
-					'left' : '50%',
-					'marginLeft' : '-'+biw/2+'px'
-				})
 				if(i == 0){
 					$('.side'+i).children().addClass('tl50p');
 					span.css({
 						'backgroundImage': 'url('+bgi+')'
 					});
-					bcw = bch = 50;
+					bcw = bch = 100;
+					$(this).css({
+						'width':biw,
+						'height':biw,
+						'position':'absolute',
+						'top':sw/2,
+						'left':'50%',
+						'marginLeft' : '-'+biw/2+'px'
+					})
 					$('.side'+i).find('.box-center').css({
 						'width':bcw,
 						'height':bch
 					})
 				}else{
-					$(this).css('transform','rotate('+ (i-1)*360/l +'deg)');
+					$(this).css({
+						'position' : 'absolute',
+						'top': (bh - _height)/2,
+						'left' : '50%',
+						'transform':'rotate('+ (i-1)*360/l +'deg)',
+						'width' : _height,
+						'height' : _height,
+						'marginLeft' : '-'+_height/2+'px'
+					}).prepend(lineCenter);
 					span.css({
 						'backgroundImage': 'url('+bgi+')'
 					});
 					$(this).find('.box-side').css({
 						'transform':'rotate('+ -(i-1)*360/l +'deg)',
 						'marginLeft':'-'+ sw/2 +'px'
-					});
+					}).animate({
+						'top': '-50px',
+						'opacity':1
+					},500);
 				}
-				$('.side'+i).children().attr('data-point',sw/2)
-			})
-
-			
-			function circle(o, x, y, r, s, e, b, rgb) {
-			    o.beginPath();
-			    b == null ? false : true;
-			    rgb == null ? o.strokeStyle = "#ff4444" : o.strokeStyle = "#" + rgb;
-			    o.arc(x, y, r, s, e, b);
-			    o.stroke(); 
-			    console.log(x,y,r,s,e,b);
-			}
-			var cc = document.getElementById('canvas-box').getContext("2d");
-			cc.lineWidth = 1;
-			function draw(ctx){
-				ctx.clearRect(0, 0, 3000, 2000);
-				circle(ctx,155,80,10,0,2 * Math.PI);
-			}
-			requestAnimationFrame(function(){
-				draw(cc);
+				$('.side'+i).children('.box-side').attr('data-point',i)
 			})
 		})(jQuery)
 	</script>
