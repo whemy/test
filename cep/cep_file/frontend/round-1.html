@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;list-style: none;}
+		.canvas-box{width: 980px;height: 500px;position: absolute;top: 15%;z-index: 10;}
+		.box{width: 980px;height: 500px;top: 15%;z-index: 20;}
+		.border{position: absolute;}
+		.border:after{content: '';position: absolute;top: 0;right: 0;bottom: 0;left: 0;border: 1px solid rgba(0,0,0,.85);border-radius: 5px;}
+		.l50p{left: 50%;-webkit-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);}
+		.tl50p{top: 50%;left: 50%;-webkit-transform: translate3d(-50%,-50%,0);-ms-transform: translate3d(-50%,-50%,0);-o-transform: translate3d(-50%,-50%,0);transform: translate3d(-50%,-50%,0);}
+		.box-center,.box-side{width: 100px;height: 100px;z-index: 30;}
+	</style>
+</head>
+<body>
+	<canvas id="canvas-box" class="canvas-box l50p"></canvas>
+	<div class="box l50p border">
+		<div class="box-center tl50p border"></div>
+		<div class="box-side side1 border"></div>
+		<div class="box-side side2 border"></div>
+		<div class="box-side side3 border"></div>
+		<div class="box-side side4 border"></div>
+		<div class="box-side side5 border"></div>
+		<div class="box-side side6 border"></div>
+		<div class="box-side side7 border"></div>
+		<div class="box-side side8 border"></div>
+		<div class="box-side side9 border"></div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		(function($) {
+			var box = $('.box'),
+				center = box.find('.box-center'),
+				side = box.find('.box-side'),
+				bw = $('.box').outerWidth(),
+				sw = $('.box-side').outerWidth(),
+				l = side.length,
+				a = Math.floor(l/2),
+				b = Math.ceil(l/2);
+			console.log(l,a,b);
+
+			side.each(function(i,o){
+				if(!$(this).hasClass('side'+(i+1))){
+					return false;
+				}
+				if(i<=a){
+					$('.side'+(i+1)).css({
+						'top' : '10%',
+						'left' : (bw-sw*b-sw*a/2)/2 + (sw+sw/2)*i + 'px'
+
+					})
+				}else{
+					$('.side'+(i+1)).css({
+						'bottom' : '10%',
+						'left' : (bw-sw*b-sw*a/2)/2 + (sw*2)*(i-b) + 'px'
+
+					})
+					console.log(i,b,a);
+				}
+			})
+		})(jQuery)
+	</script>
+</body>
+</html>
