@@ -24,7 +24,7 @@
 		.border:after{content: '';position: absolute;top: 0;right: 0;bottom: 0;left: 0;border: 1px solid rgba(0,0,0,.85);border-radius: 5px !important;}
 		.l50p{left: 50%;-webkit-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);}
 		.tl50p{top: 50% !important;left: 50% !important;-webkit-transform: translate3d(-50%,-50%,0);-ms-transform: translate3d(-50%,-50%,0);-o-transform: translate3d(-50%,-50%,0);transform: translate3d(-50%,-50%,0);}
-		.box-animate{top: 70px;opacity: 0;transition-duration: 1s;}
+		.box-animate{opacity: 0;transition-duration: 1s;}
 		.box-item:after{border-radius: 50%;}
 		.box-center,.box-side{width: 40px;height: 40px;z-index: 30;}
 		.box-item span{ width:100%; height:100%; display: block; -webkit-background-size: 100% 100%; background-size: 100% 100%; background-position: center center; background-repeat: no-repeat; -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; }
@@ -35,10 +35,9 @@
 		<canvas id="canvas-box" class="canvas-box"></canvas>
 		<div class="box l50p">
 			<div class="box-item side0">
-				<div class="box-center l50p border"><span data-src="./images/xx.jpg"></span></div>
+				<div class="box-center box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side1">
-				<!-- <div class="line-c"></div> -->
 				<div class="box-side box-animate l50p border"><span data-src="./images/xx.jpg"></span></div>
 			</div>
 			<div class="box-item side2">
@@ -147,23 +146,21 @@
 				'opacity':1
 			});
 */
+
 			item.each(function(i,o){
-				var span = $(this).find('span')
-				var bgi = span.data('src');
-				// var _height = height[i];
-				var _height = Math.random() * 500 + 40;
-				if(_height < center.outerWidth()){
-					_height += center.outerWidth();
+				var span = $(this).find('span'),
+					bgi = span.data('src'),
+					// _height = height[i],
+					_height = Math.random() * 500 + 40;
+				bcw = bch = 100;
+				if(_height < center.outerWidth() + bcw){
+					_height += center.outerWidth() + bcw;
 				}
 				if(!$(this).hasClass('side'+i)){
 					return false;
 				}
 				if(i == 0){
-					$('.side'+i).children().addClass('tl50p');
-					span.css({
-						'backgroundImage': 'url('+bgi+')'
-					});
-					bcw = bch = 100;
+					//第一个元素item位置关系
 					$(this).css({
 						'width':biw,
 						'height':biw,
@@ -171,12 +168,17 @@
 						'top':sw/2,
 						'left':'50%',
 						'marginLeft' : '-'+biw/2+'px'
-					})
+					});
+					// 第一个item下的side0的位置关系
 					$('.side'+i).find('.box-center').css({
 						'width':bcw,
 						'height':bch
-					})
+					}).animate({
+						'opacity':1
+					},500).addClass('tl50p').removeClass('l50p');
+					console.log(center.outerWidth())
 				}else{
+					// 第二个之后item位置关系
 					$(this).css({
 						'position' : 'absolute',
 						'top': (bh - _height)/2,
@@ -186,18 +188,19 @@
 						'height' : _height,
 						'marginLeft' : '-'+_height/2+'px'
 					}).prepend(lineCenter);
-					span.css({
-						'backgroundImage': 'url('+bgi+')'
-					});
 					$(this).find('.box-side').css({
 						'transform':'rotate('+ -(i-1)*360/l +'deg)',
-						'marginLeft':'-'+ sw/2 +'px'
+						'marginLeft':'-'+ sw/2 +'px',
+						'top': '70px'
 					}).animate({
 						'top': '-50px',
 						'opacity':1
-					},500);
+					},500).attr('data-point',i);
 				}
-				$('.side'+i).children('.box-side').attr('data-point',i)
+				// 将图片放入背景图片
+				span.css({
+					'backgroundImage': 'url('+bgi+')'
+				});
 			})
 		})(jQuery)
 	</script>
