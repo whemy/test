@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/round-3.css">
+</head>
+<body>
+	<section>
+		<!-- <canvas id="canvas-box" class="canvas-box"></canvas> -->
+		<div class="box l50p">
+			<div class="box-item side0">
+				<div class="box-center box-animate l50p border"><span></span></div>
+			</div>
+		</div>
+	</section>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="js/dist/net.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			document.title = 'Connect Net Tree';
+			var net = new Net({
+			centerWidth: 130,
+			sideNum: 5,
+			maxSideNum: 35,
+			mixSideNum: 1
+		})
+		});
+	</script>
+</body>
+</html>
