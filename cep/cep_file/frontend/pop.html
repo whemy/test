@@ -24,25 +24,46 @@ html,body{font: 16px/200% 'Microsoft Yahei';color: #333;line-height: 1.5;}
 </style>
 </head>
 <body>
-    <div class="click" onclick="win.pop({title:'xxx',options:['1','2','3','自定义']},{btn:{ok:'ok',cancel:'cancel'}})">click me!</div>
+    <div class="click">click me!</div>
     <!-- <div class="click" onclick="win.hide()">click me!</div> -->
 
     <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
     	var win = {
-    		mask : '<div class="mask"></div>',
-    		win_mask : 'win_mask',
+            isInit : false,
+            isLock : false,
+            isFalse : false,
+    		win_maskId : 'win_mask',
     		elem : document.createElement('div'),
     		body : document.getElementsByTagName('body'),
+            timeout : null,
+            millisec : 3000,
+            clearTimeout : function(){
+                clearTimeout(this.timeout);
+                this.timeout = null;
+            },
+            setTimeout : function(callback){
+                this.clearTimeout();
+                this.timeout = setTimeout(callback,this.millisec);
+            },
     		hide: function(){
-    			$('.'+this.win_mask).remove();
+                if(!this.isInit) return;
+                this.isFalse = false;
+                this.clearTimeout();
+                if(!this.isLock){
+                    this.isLock = !1;
+                    $('.'+this.win_maskId).remove();
+                }
+                console.log(this.isInit);
+
     		},
     		pop : function(param,btn){
     			// var param = {};
+                if(!this.isInit || !param) return;      
     			param.title = (param.title+"").replace(/\n/g,'<br>');
     			btn.ok = btn.ok || '确定';
     			btn.cancel = btn.cancel || '取消';
-    			var dom = '<div class="'+this.win_mask+'">'+this.mask+'<div class="pop">';
+    			var dom = '<div class="'+this.win_maskId+'"><div class="mask"></div><div class="pop">';
     			dom += '<h1>'+param.title+'</h1><div class="ul"><ul>';
     			for(var i = 0;i < param.options.length;i++){
     				if(/自定义/.test(param.options[i])){
@@ -52,15 +73,28 @@ html,body{font: 16px/200% 'Microsoft Yahei';color: #333;line-height: 1.5;}
     				}
     			}
     			dom += '</ul></div><div class="btn"><div class="c" onclick="win.hide()">'+btn.cancel+'</div><div class="o" onclick="win.hide()">'+btn.ok+'</div></div></div></div>';
-    			$('body').append(dom)
+    			$('body').append(dom);
     		},
     		subpop : function(o){
     			$(o).parent().remove();
-    			console.log($(this))
     			var subdom = '<input type="text" name="" value="">'
     			$('.ul').append(subdom)
-    		}
+    		},
+            init : function(){
+                this.isInit = 1;
+            }
     	}
+        win.init();
+        $('.click').click(function(){
+             // onclick="win.pop({title:'xxx',options:['1','2','3','自定义']},{btn:{ok:'ok',cancel:'cancel'}})"
+            win.pop({
+                'title':'xxx',
+                'options':['1','2','3','4444','自定义','lsfjlsdaf']
+            },{
+                'ok':'ok',
+                'cancel':'cancel'
+            })
+        })
     </script>
 </body>
 </html>
