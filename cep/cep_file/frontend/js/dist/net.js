@@ -4,26 +4,47 @@
  * @date    2017-05-02 22:22:24
  * @version $Id$
  */
+// .box>.box-item+side[i]+.box-center/+.box-side>span
 var mockJSON = {
+	/*'images':[
+				'./images/op864/00.png',
+				'./images/op864/01.png',
+				'./images/op864/02.png',
+				'./images/op864/03.png',
+				'./images/op864/04.png',
+				'./images/op864/05.png',
+				'./images/op864/06.png',
+				'./images/op864/07.png',
+				'./images/op864/08.png',
+				'./images/op864/09.png',
+				'./images/op864/10.png',
+				'./images/op864/11.png',
+				'./images/op864/12.png',
+				'./images/op864/13.png',
+				'./images/op864/14.png',
+				'./images/op864/15.png',
+				'./images/op864/16.png',
+				'./images/op864/17.png'
+			 ],*/
 	'images':[
-				'./images/op850/00.png',
-				'./images/op850/01.png',
-				'./images/op850/02.png',
-				'./images/op850/03.png',
-				'./images/op850/04.png',
-				'./images/op850/05.png',
-				'./images/op850/06.png',
-				'./images/op850/07.png',
-				'./images/op850/08.png',
-				'./images/op850/09.png',
-				'./images/op850/10.png',
-				'./images/op850/11.png',
-				'./images/op850/12.png',
-				'./images/op850/13.png',
-				'./images/op850/14.png',
-				'./images/op850/15.png',
-				'./images/op850/16.png',
-				'./images/op850/17.png'
+				'images/op864/00.png',
+				'images/op864/01.png',
+				'images/op864/02.png',
+				'images/op864/03.png',
+				'images/op864/04.png',
+				'images/op864/05.png',
+				'images/op864/06.png',
+				'images/op864/07.png',
+				'images/op864/08.png',
+				'images/op864/09.png',
+				'images/op864/10.png',
+				'images/op864/11.png',
+				'images/op864/12.png',
+				'images/op864/13.png',
+				'images/op864/14.png',
+				'images/op864/15.png',
+				'images/op864/16.png',
+				'images/op864/17.png'
 			 ]
 }
 ;(function($){
@@ -79,7 +100,7 @@ var mockJSON = {
 			}*/
 			n=n>=this.setting.maxSideNum?this.setting.maxSideNum:n<=this.setting.mixSideNum?this.setting.mixSideNum:this.setting.sideNum;
 			for(var i=1;i<=n;i++){
-				dom+='<div class="box-item side'+i+'"><div class="box-side box-animate l50p border"><span data-src="'+this.img[i]+'"></span></div></div>';
+				dom+='<div class="box-item border side'+i+'"><div class="box-side box-animate l50p border"><span data-src="'+this.img[i]+'"></span></div></div>';
 			}
 			this.boxTag.append(dom);
 
@@ -94,9 +115,9 @@ var mockJSON = {
 			this.sideLength = this.boxSideTag.length;
 			this.sideCeil = Math.ceil(this.sideLength/2);
 			this.sideFloor = Math.floor(this.sideLength/2);
-			this.boxSideCss();
+			this.boxSideAttr();
 		},
-		boxSideCss:function(){
+		boxSideAttr:function(){
 			var self = this;
 
 			// box-item
@@ -112,6 +133,11 @@ var mockJSON = {
 				self._itemHeight<self.setting.centerWidth+self.setting.centerWidth/2&&(self._itemHeight+=self.setting.centerWidth+self.setting.centerWidth/2);
 				console.log(self._itemHeight);
 
+				$(this).click(function(event) {
+					event.stopPropagation();
+					console.log(o);
+				});
+
 				//box-center
 				if(i==0){
 					$(this).css({
@@ -125,7 +151,8 @@ var mockJSON = {
 					// 第一个item下的side0的位置关系
 					$('.side'+i).find('.box-center').css({
 						'width':self.setting.centerWidth,
-						'height':self.setting.centerWidth
+						'height':self.setting.centerWidth,
+						'cursor': 'pointer'
 					}).animate({
 						'opacity':1
 					},500).addClass('tl50p').removeClass('l50p');
@@ -144,7 +171,8 @@ var mockJSON = {
 					$(this).find('.box-side').css({
 						'transform':'rotate('+ -(i-1)*360/self.sideLength +'deg)',
 						'marginLeft':'-'+ self.sideHeight/2 +'px',
-						'top': '70px'
+						'top': '70px',
+						'cursor': 'pointer'
 					}).animate({
 						'top': '-50px',
 						'opacity':1
@@ -155,9 +183,38 @@ var mockJSON = {
 					'backgroundImage': 'url('+$(this).find('span').data('src')+')'
 				})
 			})
+
+			this.spanImg = this.boxItemTag.find('span');
+			this.boxSideBgi();
+		},
+		boxSideBgi:function(){
+			this.spanImg.each(function(i,o){
+				var _this = $(this);
+				var d = new Image();
+				d.src = $(this).data('src');
+				d.onload = function(){
+					var m = d.width,n = d.height;
+					console.log(m,n);
+					if(m>n){
+						_this.css({
+							'backgroundSize':'cover'
+						})
+					}else if(m<n){
+						_this.css({
+							'backgroundSize':'contain'
+						})
+					}else {
+						_this.css({
+							'backgroundSize':'100% 100%'
+						})
+					}
+				}
+			})
+		},
+		boxSideHover:function(){
+
 		}
 
-		//背景图比例关系
 		//鼠标移过出现文字(名字)
 	}
 	// Net.init();

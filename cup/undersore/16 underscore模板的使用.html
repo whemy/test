@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="underscore.js"></script>
+</head>
+<body>
+    <!-- dome1-->
+    <div class="people"></div>
+    <script type="text/html" id="peopleTemplate">
+        <% _.each(data, function(n){ %>
+        <div>
+            <span><%= n.name%> 最喜欢吃 <%= n.fruit.fruit%>:</span>
+            <span><%= n.sex%></span>
+            <span><%= n.age%></span>
+        </div>
+        <% }); %>
+    </script>
+    <script>
+        var data=[
+            {name:"Mary",sex:"man",age:17,fruit:{fruit:"apple",No:1}},
+            {name:"Tom",sex:"man",age:16,fruit:{fruit:"orange",No:2}},
+            {name:"Marry",sex:"woman",age:16,fruit:{fruit:"bannaner",No:1}}];
+        $(".people").append(_.template($('#peopleTemplate').html(), data));
+    </script>
+
+
+<div>............................................................................................</div>
+
+    <!-- dome2-->
+    <div class="people1"></div>
+    <script type="text/html" id="peopleTemplate1">
+        <div>
+            <span><%=name%> 最喜欢吃 <%=fruit.fruit%>排在第<%=fruit.No%>位,每年花<%=price%>在吃这水果上</span>
+            <div>
+                <span><%=sex%></span>
+                <span><%=age%></span>
+            </div>
+        </div>
+    </script>
+    <script>
+        var data1=[
+            {'name':"Mary",'sex':"man",'age':17,'fruit':{'fruit':"apple",'No':1,'price':1000}},
+            {'name':"Tom",'sex':"man",'age':16,'fruit':{'fruit':"orange",'No':2,'price':1500}},
+            {'name':"Marry",'sex':"woman",'age':16,'fruit':{'fruit':"bannaner",No:3,'price':1300}}];
+
+        for(var i = 0;i < data1.length; i ++){
+            var price = data1[i].fruit.price.toFixed(2);
+            var dataList = _.template($("#peopleTemplate1").html());
+            $(".people1").append(dataList(data1[i]));
+        }
+    </script>
+<div>---------------------------------------------------------------------------</div>
+    <!--demo3-->
+    <div class="demo3"></div>
+    <script type="text/html" id="userTemplate">
+        <a href=" '<%=user.id%>' />'">
+            <li class="c-boxUI df w100p">
+                <div class="c-boxUI-l">
+                    <img src="<%=user.shopImg%>" alt="">
+                </div>
+                <div class="c-boxUI-m df-box">
+                    <h2>
+                        <%=user.shopName%>
+                    </h2>
+                    <h3>
+                        地区：<%=user.t_detail%>
+                    </h3>
+                    <h3>
+                        主营：<%=user.businesses%>
+                    </h3>
+                </div>
+            </li>
+        </a>
+    </script>
+    <script type="text/javascript">
+       var data2 = 
+       [{"user":{"shopImg":"","shopName":"车亿配","id":"8aacc4ef523063dc0152339ea0ae04b0","businesses":"","t_detail":"11111"}},
+        {"user":{"shopImg":"","shopName":"林阳洗车电","id":"8aacc4ef5234650c0152359fbcf9270e","businesses":"","t_detail":"西环路57号"}},
+        {"user":{"shopImg":"","shopName":"智发汽修","id":"8aacc4ef5235e8a5015238ba549304de","businesses":"","t_detail":"蔡边村深华路157号"}},
+        {"user":{"shopImg":"","shopName":"万江坚记汽修","id":"8aacc4ef5235e8a50152391b0a7c3099","businesses":"","t_detail":"万江黄龙街35-36号铺"}},
+        {"user":{"shopImg":"","shopName":"长安车酷汽修","id":"8aacc4ef5235e8a50152391b0a7f309b","businesses":"","t_detail":"新安社区横中路3208号"}},
+        {"user":{"shopImg":"","shopName":"极速传说","id":"8aacc4ef5235e8a50152391b0a80309d","businesses":"","t_detail":"新安二路嘉华楼"}},
+        {"user":{"shopImg":"","shopName":"长安奥丰汽修","id":"8aacc4ef5235e8a50152391b0a82309f","businesses":"","t_detail":"霄边新河56号B座"}},
+        {"user":{"shopImg":"","shopName":"车风道汽车维修厂","id":"8aacc4ef5235e8a50152391b0a8330a1","businesses":"","t_detail":"乌沙李屋第一工业区（李屋外经办对面）"}},
+        {"user":{"shopImg":"","shopName":"吴川鸿发汽车修配轮胎","id":"8aacc4ef5235e8a50152391b0a8530a3","businesses":"","t_detail":"厦岗码头福海学校红绿灯交叉处"}},
+        {"user":{"shopImg":"","shopName":"二和汽修厂","id":"8aacc4ef5235e8a50152391b0a8630a5","businesses":"","t_detail":"厦岗莲湖路旁"}}]
+
+        for(var i = 0;i < data2.length; i ++){
+            var dataList = _.template($("#userTemplate").html());
+            $(".demo3").append(dataList(data2[i]));
+        }
+    </script>
+</body>
+</html>
