@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<meta http-equiv="expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<title>Examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="../css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/app-inquiry.css">
+	<link rel="stylesheet" href="../css/cepfont/cepIconfont.css">
+</head>
+<body class="has-fixed">
+	<div class="head-title">
+		<div class="c-box">
+			<div class="box-table">
+				<span>
+					<a href="wx/qp!getListUI" class="goback"></a>
+				</span>
+				<strong>询价单</strong>
+				<span>
+					<!-- ko if:qpApplyType() == 0 -->
+						<a class="right" data-bind="click: $root.goUpdateUi">添加配件</a>
+					<!-- /ko -->
+				</span>
+			</div>
+		</div>
+	</div>
+	<!-- main S -->
+	<div class="nav-tab df ac">
+		<a class="df-box active">全部</a>
+		<a class="df-box">已报店铺</a>
+		<a class="df-box">距离最近</a>
+	</div>
+	<div class="inquiry-news item-list">
+		<div class="item">
+			<a class="df">
+				<div class="item-img"><img src="../images/demo/demo4.jpg" alt=""><b></b></div>
+				<div class="item-text df-box">
+					<h3 class="it-one wsnw">三菱风神风行-寮步-展丰店</h3>
+					<p class="it-two"><i class="cep-icon icon-dingwei"></i><span>5km</span></p>
+					<p class="it-three wsnw">带灯泡的</p>
+				</div>
+				<div class="item-right">
+					<p class="ir-one"><span>已报价</span></p>
+					<p class="ir-two">13:00</p>
+				</div>
+			</a>
+		</div>
+		<div class="item">
+			<a class="df">
+				<div class="item-img"><img src="../images/demo/demo4.jpg" alt=""><b></b></div>
+				<div class="item-text df-box">
+					<h3 class="it-one wsnw">三菱风神风行-寮步-展丰店</h3>
+					<p class="it-two"><i class="cep-icon icon-dingwei"></i><span>5km</span></p>
+					<p class="it-three wsnw">带灯泡的</p>
+				</div>
+				<div class="item-right">
+					<p class="ir-one"><span>已报价</span></p>
+					<p class="ir-two">13:00</p>
+				</div>
+			</a>
+		</div>
+		<div class="item">
+			<a class="df">
+				<div class="item-img"><img src="../images/demo/demo4.jpg" alt=""><b></b></div>
+				<div class="item-text df-box">
+					<h3 class="it-one wsnw">三菱风神风行-寮步-展丰店</h3>
+					<p class="it-two"><i class="cep-icon icon-dingwei"></i><span>5km</span></p>
+					<p class="it-three wsnw">带灯泡的</p>
+				</div>
+				<div class="item-right">
+					<p class="ir-one"><span>已报价</span></p>
+					<p class="ir-two">13:00</p>
+				</div>
+			</a>
+		</div>
+	</div>
+	<!-- main E -->
+</body>
+</html>
