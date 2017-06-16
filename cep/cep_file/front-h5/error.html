@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<title></title>
+	<meta name="keywords" content="关键字">
+	<meta name="description" content="描述">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telphone=no, email=no">
+<link rel="stylesheet" href="../css/error.css?v=${version}">
+<link rel="stylesheet" href="../css/AdminStyle.css">
+</head>
+
+<body>
+
+	<div class="wrap">
+		<div class="error_wrap">
+			<font color=red><b>对不起，请确认以下信息：</b>
+			</font>
+
+
+			<s:if test="exception.message=='请先退出登录。'">
+				<p>你已登录系统，请先点击退出登录，再行注册</p>
+				<a href="front/login!logout">退出登录</a>
+				<br />
+			</s:if>
+			<s:elseif test="exception.message=='请先退出登录哈。'">
+				<p>你已登录系统，请先点击退出登录，再行注册</p>
+				<a href="m/index!logout">退出登录</a>
+				<br />
+			</s:elseif>
+			<s:else>
+				<p>
+					<s:property value="exception.message" escape="false" />
+				</p>
+			</s:else>
+
+			<a href="javascript :;" onClick="javascript :history.back(-1);">返回上一页</a>
+		</div>
+	</div>
+
+</body>
+</html>

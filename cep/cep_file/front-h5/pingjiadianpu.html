@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet" href="../css/app.css?v=${version}">
+<link rel="stylesheet" href="../css/cepfont/cepIconfont.css?v=${version}">
+<link rel="stylesheet" href="../css/app_order.css?v=${version}">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body class="">
+	<div class="head-title">
+		<div class="c-box">
+			<div class="box-table">
+				<span>
+					<a href="javascript:history.go(-1)" class="goback"></a>
+				</span>
+				<strong>评价店铺</strong>
+				<span><a class="right"></a></span>
+			</div>
+		</div>
+	</div>
+	<div class="itemLIst">
+		<div class="itemBox shopEva df">
+			<div class="itemImg">
+				<img src="../images/demo/demo4.jpg" alt="">
+			</div>
+			<div class="shopGrade">
+				<p>本田讴歌-寮步-捷通店</p>
+				<span class="shopGradeStarA"></span>
+			</div>
+			<div class="shopCol flexdd">
+				<span><i class="cep-icon icon-shoucang"></i>收藏</span>
+			</div>
+		</div>
+	</div>
+	<div class="shopEvaTitle"><span>店铺评分</span></div>
+	<div class="itemList">
+		<div class="evaluate" style="border-top: 0;">
+			<div class="evaluateList">
+				<ul>
+					<li class="df">
+						<span>报价速度</span>
+						<div id="starone" class="star block fix">
+							<div class="star_score"></div><p class="fenshu"></p>
+						</div>
+					</li>
+					<li class="df">
+						<span>服务态度</span>
+						<div id="startwo" class="star block fix">
+							<div class="star_score"></div><p class="fenshu"></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<input type="text" id="input">
+	<select name="" id="sel">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+	<div class="evaluateLabel">
+		<ul>
+			<li>店家专业<i class="cep-icon icon-check"></i></li>
+			<li>店家很专业<i class="cep-icon icon-check"></i></li>
+			<li>店专业<i class="cep-icon icon-check"></i></li>
+			<li>店家很<i class="cep-icon icon-check"></i></li>
+			<li>店家很专业<i class="cep-icon icon-check"></i></li>
+			<li>店家很专业<i class="cep-icon icon-check"></i></li>
+			<li>店家很专业<i class="cep-icon icon-check"></i></li>
+			<li>业<i class="cep-icon icon-check"></i></li>
+			<li class="active">店家很专业<i class="cep-icon icon-check"></i></li>
+		</ul>
+	</div>
+	<div class="evaluateLeave">
+		<textarea name="" id="" placeholder="还可以添加对该店铺的其他评价"></textarea>
+	</div>
+	<div class="itemList">
+		<div class="pubEvaAnony df">
+			<div class="anonoyCheck"><input type="checkbox" checked="checked"><i></i><span>匿名</span></div>
+			<div>你写的评价会以匿名的形式展现</div>
+		</div>
+	</div>
+	<div class="submitBtn">
+		<a>发表评价</a>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="../js/sysjs/startScore.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			var i = $('#input').val(),s = $('#sel').val();
+			var timer = null;
+			console.log(i,s);
+			$('#input').off().on('keydown propertychange',function(e){
+				var self = $(this);
+				timer = setTimeout(function(){
+					clearTimeout(timer);
+					if(!/^\d+$/.test(self.val())){
+						if(e.keyCode == 8){
+							return false;
+						}
+						alert('请输入非负整数！');
+					}
+						
+					if(self.val()<1000){
+						$('#sel').val("1").attr('selected',true)
+					}else if (self.val()>1000 && self.val()<2000) {
+						$('#sel').val("2").attr('selected',true)
+					}else if (self.val()>2000 && self.val()<3000) {
+						$('#sel').val("3").attr('selected',true)
+					}else if (self.val()>3000 && self.val()<4000) {
+						$('#sel').val("4").attr('selected',true)
+					}else {
+						$('#sel').val("5").attr('selected',true)
+					}
+				});
+			})
+		});
+		$(function() {
+			scoreFun($("#starone"),{
+				fen_d:32,//每一个a的宽度
+				ScoreGrade:5//a的个数 10或者
+			});
+			scoreFun($("#startwo"),{
+				fen_d:32,//每一个a的宽度
+				ScoreGrade:5//a的个数 10或者
+			});
+			var liCh = $('.evaluateLabel li');
+			liCh.each(function(i,e){
+				$(this).on('click',function(){
+					$(this).addClass('active').siblings('li').removeClass('active');
+				})
+			});
+		});
+	</script>
+</body>
+</html>

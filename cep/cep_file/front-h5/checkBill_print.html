@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<style type="text/css">
+	*{margin: 0;padding: 0;list-style: none;}
+	body{font-size: 14px;line-height: 1.4;font-family: "宋体";color: #000;}
+	.ac{text-align: center;}
+	.print_wrap{width: 800px;margin: 10px auto;}
+	.print_wrap .p1{font-size: 20px;}
+	.print_wrap .p1 img{width: 150px;}
+	.print_wrap .p2 span{display: inline-block;font-size: 16px;margin-top: 15px;}
+	.print_wrap .p3 span{margin-top: 15px;width: 33.33%;display: inline-block;text-indent: 10px;}
+	.print_wrap .p4{margin-top: 5px;position: relative;}
+	.print_wrap .p4 table{width: 100%;border-collapse: collapse;}
+	.print_wrap .p4 table th,.print_wrap .p4 table td{height: 30px;vertical-align:middle;word-wrap:break-word;word-break: break-all;}
+	.print_wrap .p4 .border-tb th,.print_wrap .p4 .border-tb td{font-weight: normal;border:1px solid #333;}
+	.print_wrap .p4 tbody tr td:nth-child(4){border: 0;border-right: 1px solid  #333;}
+	.print_wrap .p4 .p4_4 p{text-align: left;text-indent: 10px;}
+	.print_wrap .p4 .p4_4 p>span{width: 8%;display: inline-block;text-align: right;}
+	.print_wrap .p4 .p4_4 p>span b{font-weight: normal;margin-right: 15px;}
+	.print_wrap .p4 .pos{position: absolute;top: 32px;right: 1px;width: 171px;padding: 5px;vertical-align:middle;word-wrap:break-word;word-break: break-all;background-color: #fff;}
+	.print_wrap .p5 span{margin-top: 15px;width: 25%;display: inline-block;}
+</style>
+</head>
+<body>
+	<div class="print_wrap">
+		<p id="printButton" style="text-align:right"><input type="button" value="打印页面" onclick="myprint()"/></p>
+		<p class="p1 ac"><img src="../images/printlogo.jpg" alt="">东莞市车亿配网络科技有限公司</p>
+		<p class="p2 ac"><span>付 款 单</span></p>
+		<p class="p3"><span>户名：</span><span>开户行：</span><span>账号：</span></p>
+		<div class="p4 ac">
+			<table cellpadding="0" cellspacing="0" class="border-tb">
+				<thead>
+					<tr>
+						<th width="20%">业务日期</th>
+						<th width="37%">摘要（用途说明）</th>
+						<th width="20%">金 额</th>
+						<th width="23%">备 注</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">合计</td>
+						<td>56823</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="4" class="p4_4">
+							<p>金额大写：人民币
+							<span><b>壹</b>拾</span>
+							<span><b>壹</b>万</span>
+							<span><b>壹</b>仟</span>
+							<span><b>壹</b>佰</span>
+							<span><b>壹</b>拾</span>
+							<span><b>壹</b>元</span>
+							<span><b>壹</b>角</span>
+							<span><b>壹</b>分</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- 备注 -->
+			<div class="pos"></div>
+		</div>
+		<p class="p5"><span>审核/批准：</span><span>会计：</span><span>提交部门：</span><span>出纳：</span></p>
+	</div>
+<script type="text/javascript">
+function myprint(){
+	$('#printButton').hide();
+	window.print();
+	setTimeout(function(){$('#printButton').show();},100);
+}
+var l = $('.border-tb').find('tbody').find('tr').length,
+	h = $('.border-tb').find('tbody').find('tr').outerHeight(),
+	_h = $('.pos').outerHeight(),
+	t;
+if(h*l>_h){
+	t = Math.floor((h*l-_h)/2+h);
+	$('.pos').css('top',t+'px');
+}else{
+	$('.pos').css({
+		'height':(h*l-54)+'px',
+		'top':'35px',
+		'overflow':'hidden'
+	});
+}
+</script>
+</body>
+</html>

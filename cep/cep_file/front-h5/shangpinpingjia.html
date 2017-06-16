@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<link rel="stylesheet" href="../css/app.css?v=${version}">
+<link rel="stylesheet" href="../css/cepfont/cepIconfont.css?v=${version}">
+<link rel="stylesheet" href="../css/app_order.css?v=${version}">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<div class="head-title">
+		<div class="c-box">
+			<div class="box-table">
+				<span>
+					<a href="javascript:history.go(-1)" class="goback"></a>
+				</span>
+				<strong>商品评价</strong>
+				<span><a class="right"></a></span>
+			</div>
+		</div>
+	</div>
+	<div class="item-list" style="padding-top: 40px;">
+		<div class="item-list">
+			<div class="gEvaluation">
+				<div class="gEvaluationCell">
+					<h1>所有评价(222)</h1>
+					<ul class="fix">
+						<li class="cur">全部</li>
+						<li>好评(100)</li>
+						<li>中评(22)</li>
+						<li class="grey">差评(22)</li>
+						<li>质量一般(100)</li>
+						<li>有图(5)</li>
+						<li>商家服务好(155)</li>
+						<li>中评(22)</li>
+						<li class="grey">差评(22)</li>
+						<li>质量一般(100)</li>
+						<li>有图(5)</li>
+						<li>商家服务好(155)</li>
+						<li>中评(22)</li>
+						<li class="grey">差评(22)</li>
+						<li>质量一般(100)</li>
+						<li>有图(5)</li>
+						<li>商家服务好(155)</li>
+					</ul>
+					<div class="gEvaCellMore"><i class="cep-icon icon-arrow-right"></i></div>
+				</div>
+			</div>
+		</div>
+		<div class="itemLine"></div>
+
+		<div class="gEvaluationCont" data-bind="foreach: list">
+			<div class="gEvaluationContList">
+				<div class="gEvaContTop df">
+					<div class="gEvaImg">
+						<img src="/images/demo/demo4.jpg" alt="">
+					</div>
+					<div class="gEvaId boxaligncenter webbox"><span>用户名</span></div>
+					<div class="gEvaDate boxaligncenter boxpackend webbox"><span>2017-3-10</span></div>
+				</div>
+				<div class="gEvaContDown">
+					<p>宝贝很好，除了跟医院的外包装不一样，其它都是一样的，效果很好，值得亲们放心购买，刚发现最近要搞活动，又便宜了不少，在想要不要买一瓶备用呢？？？</p>
+					<div class="g_img">
+						<ul>
+							<li><img src="/images/demo/demo4.jpg" alt=""></li>
+							<li><img src="/images/demo/demo4.jpg" alt=""></li>
+							<li><img src="/images/demo/demo4.jpg" alt=""></li>
+							<li><img src="/images/demo/demo4.jpg" alt=""></li>
+						</ul>
+					</div>
+					<div class="g_info df">
+						<div class="g_infoL">
+							<p>全合成0W-40 SN级; 1L</p>
+							<p>购买日期:2017-03-10</p>
+						</div>
+						<div class="g_infoR boxalignend boxpackend webbox">
+							<span><i class="cep-icon icon-aixin-kong"></i><b>22</b></span>
+							<span><i class="cep-icon icon-lianxi2"></i><b>22</b></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/wx/scroll.js?v=${version}" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			var m = $('.gEvaCellMore'), li = $('.gEvaluationCell ul li'), l = li.size();
+			console.log(l)
+			if(l>9){
+				li.eq(9).nextAll().toggle();
+			}
+			m.off().on('click',function(){
+				li.eq(9).nextAll().toggle();
+				$(this).find('i').toggleClass('show');
+			});
+			li.off().on('click',function(){
+				$(this).addClass('cur').siblings('li').removeClass('cur')
+			});
+			var heart = $('.g_info .g_infoR .icon-aixin-kong');
+			heart.off().on('click',function(){
+				var txt = $(this).next().text();
+				if( $(this).hasClass('icon-aixin-kong') ){
+					$(this).removeClass('icon-aixin-kong').addClass('icon-aixin-shi').css('color','#ff4546');
+					txt++;
+					$(this).next().text(txt);
+					return;
+				}else{
+					$(this).removeClass('icon-aixin-shi').addClass('icon-aixin-kong').css('color','#959595');
+					txt--;
+					$(this).next().text(txt);
+					return;
+				}
+			});
+		});
+		// 列表滚动加载（写法做为参考）
+		(function(window){
+			var ViewModel = function(){
+				var self = this;
+				//是否已初始化
+				var isInit = true;
+				this.scroll = new ScrollView({
+					list: '.gEvaluationCont'
+					, item: '.gEvaluationContList'
+					, scroller: window
+				});
+
+				//此处要在类名为gEvaluationCont的div加上 data-bind="foreach: list" 如上
+				this.list = ko.observableArray();
+				//此处是ajax回调成功的函数
+				this.callback = function(data){
+					if(data.res.status!=0){
+						Toast.alert(data.res.errMsg||'接口出错');
+						return false;
+					}
+					var inf = data.inf;
+					//第一次初始化滚动加载
+					if(isInit){
+						self.scroll.init(function(){
+							self.getList();
+						});
+						isInit = false;
+					}
+					for(var i = 0; i < inf.arr.length;i++){
+						self.list().push(inf.arr[i]);
+					}
+					self.list(self.list());
+					self.scroll.isEnd(inf.isEnd);
+					self.scroll.onOff(true);
+				}
+				var callbackData = {
+					success:self.callback,
+					dataType:'json'
+				}
+				
+				this.getList = function(){
+					cep.commAjax(callbackData);
+				};
+				this.main = function(){
+					self.getList();
+				}.bind(this);
+			}
+			var viewModel = new ViewModel();
+			ko.applyBindings(viewModel);
+			viewModel.main();
+			window.shopList = viewModel;
+		})(this)
+
+	</script>
+</body>
+</html>

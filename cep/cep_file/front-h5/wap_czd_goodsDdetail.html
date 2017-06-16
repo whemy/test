@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<title>产品详情</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<meta http-equiv="expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<link rel="stylesheet" href="../css/app_base.css">
+	<link rel="stylesheet" href="../css/appCar_style.css">
+	<link rel="stylesheet" href="../css/cepfont/cepIconfont.css">
+	<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+</head>
+	<body class="bgc-f3f3f3">
+		<div class="head-com" style="">
+			<div class="head-comMain">
+				<div class="head-comDiv"><a href="javascript:history.go(-1);">返回</a></div>
+				<h1 class="head-comH">产品详情</h1>
+				<div class="head-comDiv"><a href=""></a></div>
+			</div>
+			<div style="height: 40px;"></div>
+		</div>
+		<div class="gallary">
+			<img src="../images/demo/demo1.jpg" alt="" style="width:100%;" >
+		</div>
+		<div class="gbox ginfo mb10">
+			<div class="name df">
+				<div class="gtitlename df-box">
+					<span>{$goods_info.title}</span>
+				</div>
+				<div class="gshareBtn">
+					<a><i class="cep-icon icon-share"></i>
+					<p style="color: #8a8a8a;">分享</p></a>
+				</div>
+			</div>
+			<div class="code_share">
+				<div class="code_share_mask"></div>
+			</div>
+			<div class="price mb10">
+				<span><b style="font-size: 20px;font-weight: normal;color:#ff4444;">￥{$goods_info.price}</b>/个</span>
+			</div>
+			<ul class="gmui-flex df">
+				<li class="df-box">销量:{$goods_info.sale_count}</li>
+				<li class="df-box">库存:{$goods_info.inventory}</li>
+			</ul>
+		</div>
+
+		<div class="gbox gpara gview mb10">
+			<div class="box_selects df" style="border-bottom: 1px solid #ededed;">
+				<a class="gtab df-box cur">商品参数</a>
+			</div>
+			<div class="gview">
+				<div class="view">
+					<ul class="gparaul">
+						<li><span>商品货号</span><span><s:property value="goods.no" /></span></li>
+						<li><span>商品品牌</span><span><s:property value="goods.goodsBrand" /></span></li>
+						<li><span>原厂编码</span><span><s:property value="goods.oriNo" /></span></li>
+						<li><span>品牌编码</span><span><s:property value="goods.brandNo" /></span></li>
+						<li><span>商品规格</span><span><s:property value="goods.spec" /></span></li>
+						<li><span>保质期</span><span><s:property value="goods.goodTime" /></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		
+		<div class="gbox gpara" style="margin-bottom:100px">
+			<div class="mb10">
+				<div class="box_selects df" id="detail-selects" style="border-bottom: 1px solid #ededed;">
+					<a class="gtab df-box cur">商品详情</a>
+				</div>
+				<div class="gview">
+					<div class="view">
+						<div class="article">
+							{$goods_info.content}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 立即购买 S -->
+		<div id="buy" class="frame_block buy_block" data-func="showBuy" data-type="0">
+			<div class="mask"></div>
+			<div class="frame">
+				<div class="info">
+					<div class="img">
+						<img src="../images/demo/demo1.jpg" alt="">
+					</div>
+					<p class="gray">最低价：</p>
+					<p class="rred">
+						￥<span id="lowerPrices">13.0</span>/个
+						<!-- 如果是有打折显示打折价格 -->
+					</p>
+					<p>库存：5个</p>
+					<a class="close"><i class="icon-guanbi"></i></a>
+				</div>
+				<form action="" class="handle" id="goodsDetail">
+					<div class="c-boxUI">
+						<div class="c-boxUI-m cl">
+							<div class="fl">购买数量：</div>
+							<div class="fr">
+								<p>
+									<i>-</i> 
+									<input name="carCount" id="buyInput" type="tel" value="1" data-max="5" data-arr="" data-promotion="1" data-lowprice="13.0" autocomplete="off">
+									<i>+</i>
+								</p> 
+							</div>
+						</div>
+						<div class="c-boxUI-m cl">
+							<div class="fl">价格：</div>
+							<div class="fr">
+								<p class="ac rred wsn">￥<span id="buyTotal">13.00</span>/个</p>
+							</div>
+						</div>
+					</div>
+				</form>
+				<a onclick="goodsSubmit()" class="btn btn-buy">确定</a>
+			</div>
+		</div>
+		<!-- 立即购买 E -->
+
+		<a href="javascript:void(0)" onclick="$('body').scrollTop(0)" class="return-top"></a>
+
+		<div class="shop_bottom_handle df">
+				<a class="goshop" href="#">
+					<i class="cep-icon icon-dianpu"></i>
+					<p>进店</p>
+				</a>
+				<a href="#" class="gocard">
+					<i class="cep-icon icon-gocard"></i> 
+					<p>购物车</p>
+					<b>1</b>
+				</a>
+				<a class="btn addcart df-box" onclick="location.hash='#buy?1'">
+					<i class="cep-icon icon-jiarugouwuche"></i>
+					<span>加入购物车</span>
+				</a>
+				<a class="btn buynow df-box" onclick="location.hash='#buy?0'">
+					<i class="cep-icon icon-qiandai"></i>
+					<span>立即购买</span>
+				</a>
+		</div>
+		<script src="js/goods.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			// 分享按钮
+			$(function() {
+				$('.gshareBtn').on('click',function(e){
+					e.preventDefault();
+					$('.code_share .code_share_mask').show();
+				})
+				$('.code_share').on('click',function(e){
+					e.preventDefault();
+					$(this).find('.code_share_mask').hide();
+				})
+			});
+		</script>
+	</body>
+</html>

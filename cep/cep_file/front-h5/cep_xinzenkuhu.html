@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="keywords" content="关键字">
+	<meta name="description" content="描述">
+	<meta name="renderer" content="webkit">
+	<link rel="stylesheet" href="../css/web_base.css">
+	<link rel="stylesheet" href="../css/web_style.css">
+	<link rel="stylesheet" href="../css/cepfont/cepIconfont.css">
+	<style>
+		.update-alert{position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
+		.update-mask{width: 100%;height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.35);}
+		.update-box{width: 25%;background-color: #fff;font-size: 16px;text-align: center;position: absolute;top: 20%;left: 50%;}
+		.update-box h1{padding: 10px 0;border-bottom: 1px solid  #ededed;}
+		.update-box .update-closed{position: absolute;top: -18px;right: -50px;color: #fff;font-size: 50px;cursor: pointer;}
+		.update-box .update-cont{padding: 40px;}
+	</style>
+</head>
+<body>
+	<!-- 更新提示 S -->
+	<div class="update-alert hide">
+		<div class="update-mask"></div>
+		<div class="update-box l50p">
+			<h1>升级提示</h1>
+			<div class="update-closed trs-rot-45">+</div>
+			<div class="update-cont">
+				维护通知：今天（2017-03-30）晚上18:40-21:00，车亿配系统维护，给您带来不便，敬请谅解。
+			</div>
+		</div>
+	</div>
+	<!-- 更新提示 E -->
+	<!-- 公共头部 S -->
+	<div class="headWrap bgc-red">
+		<div class="headMain cl">
+			<div class="headLogo fl">
+				<img src="../images/repairShop/index_logo.png" alt="">
+			</div>
+			<div class="headInfo fr">
+				<ul class="cl">
+					<li><a href="">某某汽修厂</a></li>
+					<li><a href="">退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 公共头部 E -->
+	<!-- main S -->
+	<div class="mainWrap dt w100p">
+		<!-- 左边菜单 S -->
+		<div class="leftWrap bgc-white dtc">
+			<div class="leftArea">
+				<dl>
+					<dt><a href=""><i class="icon-shouye"></i>首页</a></dt>
+				</dl>
+				<dl>
+					<dt><a href=""><i class="icon-unif050"></i>店铺管理</a></dt>
+					<dd><a href=""><i class="icon-cshy-orders"></i>我的订单</a></dd>
+					<dd><a href=""><i class="icon-liwu"></i>我的积分</a></dd>
+					<dd><a href=""><i class="icon-address"></i>收货地址</a></dd>
+				</dl>
+				<dl>
+					<dt class="active"><a href=""><i class="icon-kehu1"></i>客户管理</a></dt>
+				</dl>
+			</div>
+		</div>
+		<!-- 左边菜单 E -->
+		<!-- 右边菜单 S -->
+		<div class="rightWrap dtc">
+			<div class="rightArea">
+				<h1 class="rightBread c-sub">客户管理 <a>> 新增客户</a></h1>
+				<div class="rightMain bgc-white">
+					<div class="rt-table-main">
+						<div class="rt-table">
+							<div class="rt-title"><h1>车主信息</h1></div>
+							<ul class="rt-table-list">
+								<li><span>车主姓名</span><input type="text"></li>
+								<li><span>车主电话</span><input type="text"></li>
+								<li><span>录入时间</span><input type="text"></li>
+							</ul>
+						</div>
+						<div class="rt-table">
+							<div class="rt-title cl"><h1>车辆信息</h1><a class="add_carinfo"><i class="icon-zengjia"></i>新增车辆信息</a></div>
+							<ul class="rt-table-list">
+								<li><span>车架号（VIN）</span><input type="text"></li>
+								<li><span>车辆号</span><input type="text"></li>
+								<li><span>车型排量</span><input type="text"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="rt-save"><a class="btn-main">保存</a></div>
+				</div>
+			</div>
+		</div>
+		<!-- 右边菜单 E -->
+	</div>
+	<!-- main E -->
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/app.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/cepfont/cepIconfont.css">
+<script src="../js/util/jquery-1.9.0.js" type="text/javascript"></script>
+</head>
+
+<body class="bg-gray">
+
+	<div class="head-title">
+		<div class="c-box">
+			<div class="box-table">
+				<span>
+					<a href="javascript:history.go(-1)" class="goback"></a>
+				</span>
+				<strong>商品详情</strong>
+				<span><i class="right"></i></span>
+			</div>
+		</div>
+	</div>
+	<div class="gallary">
+		<img src="../images/demo/demo4.jpg">
+		<div class="gbox ginfo mb10">
+			<div class="name bk df">
+				<div class="gtitlename" style="">
+					<span style="width: 95%;">金美孚汽机油1号0W-40 SN 1L 12支/箱</span>
+				</div>
+			</div>
+			<div class="price mb10">
+				<span>
+					<b style="font-size: 22px;font-weight: normal;color:#ff4546;vertical-align: middle;">2800</b>
+					<b style="font-weight: normal;">积分</b>
+				</span>
+			</div>
+		</div>
+
+		<div class="gbox gpara gview mb10">
+			<div class="box-selects df" style="border-bottom: 1px solid #ededed;">
+				<a class="gtab df-box cur" style="border-right: 1px solid #ededed;">商品参数</a> <a class="gtab df-box">商品评价(<s:property
+						value="goodsCommentPg.totalResult" />)
+				</a>
+			</div>
+			<div class="gview">
+				<div class="view">
+					<ul class="gparaul">
+						<li><span>商品货号</span><span><s:property
+									value="goods.no" /></span></li>
+						<%--<li><span>分 类 名</span><span><s:property value="goods.type3"/></span></li>--%>
+						<%--<li><s:if test="goods.type==0"><span>原厂编码</span><span><s:property value="goods.oriNo"/></span></s:if><s:else><span>规格</span><span><s:property value="goods.spec"/></span></s:else></li>--%>
+						<li><span>品牌编码</span><span><s:property
+									value="goods.brandNo" /></span></li>
+						<li><span>规格</span><span><s:property
+									value="goods.spec" /></span></li>
+						<li><span>品 牌 名</span><span><s:property
+									value="goods.goodsBrand" /></span></li>
+						<%--<li><span>品牌分类：</span><span><s:property value="goods.brandType"/></span></li>--%>
+						<s:if test="more1Name!=Null&&more1Name!=''">
+							<li><span><s:property value="more1Name" /></span><span><s:property
+										value="queryMore1" /></span></li>
+						</s:if>
+						<s:if test="more2Name!=Null&&more2Name!=''">
+							<li><span><s:property value="more2Name" /></span><span><s:property
+										value="queryMore2" /></span></li>
+						</s:if>
+						<s:if test="more3Name!=Null&&more3Name!=''">
+							<li><span><s:property value="more3Name" /></span><span><s:property
+										value="queryMore3" /></span></li>
+						</s:if>
+					</ul>
+				</div>
+				<div class="view hide">
+					<div class="item-list">
+					<s:if test="goodsCommentPg.totalResult==0">
+						<div class="gEvaluation">
+							<div class="gEvaluationCell">
+							<h1 style="text-align: center;font-weight: normal;">暂无相关评价</h1>
+							</div>
+						</div>
+					</s:if>
+					<s:iterator value="goodsCommentPg.pts" status="s" var="o">
+						<s:if test="#s.index==0">
+								<div class="item-list">
+										<div class="gEvaluation">
+											<div class="gEvaluationCell">
+												<h1>
+													所有评价(
+													<s:property value="goodsCommentPg.totalResult"/>
+													)
+												</h1>
+												<!-- <ul class="fix">
+											<li class="cur">全部</li>
+											<li>好评(100)</li>
+											<li>中评(22)</li>
+											<li class="grey">差评(22)</li>
+											<li>质量一般(100)</li>
+											<li>有图(5)</li>
+											<li>商家服务好(155)</li>
+										</ul> -->
+											</div>
+										</div>
+								</div>
+									<s:iterator value="goodsCommentPg.pts" status="s" var="o">
+										<s:if test="#s.index==0">
+											<div class="item-list">
+												<div class="gEvaluationCont">
+													<div class="gEvaContTop df">
+														<div class="gEvaImg">
+															<img src="<s:property value="#o.user.img"/>" alt="">
+														</div>
+														<div class="gEvaId boxaligncenter webbox">
+															<span><s:property value="#o.userName" /></span>
+														</div>
+														<div class="gEvaDate boxaligncenter boxpackend webbox">
+															<span><s:date name='#o.createTime' format="yyyy-MM-dd" /></span>
+															<span><s:date name='#o.createTime' format="yyyy-MM-dd" /></span>
+														</div>
+													</div>
+													<div class="gEvaContDown">
+														<p>
+															<s:property value="#o.content" />
+														</p>
+														<div class="g_img">
+															<ul>
+																<s:if test="#o.picUrl1 !=null && #o.picUrl1 !=''">
+																	<li><img src="<s:property value="#o.picUrl1"/>" alt=""></li>
+																</s:if>
+																<s:if test="o.picUrl2 !=null && #o.picUrl2 !=''">
+																	<li><img src="<s:property value="#o.picUrl2"/>" alt=""></li>
+																</s:if>
+																<s:if test="o.picUrl3 !=null && #o.picUrl3 !=''">
+																	<li><img src="<s:property value="#o.picUrl3"/>" alt=""></li>
+																</s:if>
+																<s:if test="o.picUrl4 !=null && #o.picUrl4 !=''">
+																	<li><img src="<s:property value="#o.picUrl4"/>" alt=""></li>
+																</s:if>
+															</ul>
+														</div>
+													</div>
+													<div class="gEvaMore" id="showCommentBtn">
+														<a>查看全部评价</a>
+													</div>
+												</div>
+											</div>
+										</s:if>
+									</s:iterator>
+						</s:if>
+					</s:iterator>
+
+			</div>
+		</div>
+
+		<s:if test="promotion!=null">
+			<!-- 成交记录 S -->
+			<div class="gbox grecord mb10">
+				<p class="name on">成交记录</p>
+				<div class="grecord_table fix">
+					<ul class="grecord_head fix">
+						<li>用户</li>
+						<li>订购数量</li>
+						<li>价格</li>
+						<li>成交时间</li>
+					</ul>
+					<div class="grecord_div">
+						<ul class="grecord_list fix">
+							<s:iterator value="userOrderItems">
+								<li class="fix">
+									<div class="grecord_name">
+										<s:property value="user.showName" />
+									</div>
+									<div>
+										<s:property value="count" />
+									</div>
+									<div>
+										<s:property value="getGoodsAcPrice(goods,true)" />
+									</div>
+									<div>
+										<s:date name="createTime" format="yyyy-MM-dd HH:mm:ss"
+											var="createTime" />
+										<s:property value="#createTime" />
+									</div>
+								</li>
+							</s:iterator>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 成交记录 E -->
+		</s:if>
+		<div class="itemLine" style="background-color: #f4f4f4;border: 0;"></div>
+		<s:if
+			test="goods.shop!=Null&&#session.login_front_sonPlatform.isShowShop==1">
+			<div class="gbox gshop">
+				<div class="mb15 df">
+					<img src="<s:property value="goods.shop.logo"/>" alt="<s:property value="goods.shop.logo"/>" class="slogo">
+					<div class="df-box">
+						<p class="name ">
+							<s:property value="goods.shop.shopName" />
+							<s:if test="goods.shop.linkUrl!=null">
+								<a href="<s:property value="goods.shop.shopUrl"/>"
+									class="i-contact ml20" title="联系我">联系我</a>
+							</s:if>
+							<s:else>
+								<a href="wx/cs!index?shopId=<s:property value="goods.shop.id"/>"
+									class="i-contact ml20" title="联系我">联系我</a>
+							</s:else>
+							<s:if test="goods.shop.linkTel!=null">
+								<a
+									onclick="showTelList('<s:property value="goods.shop.linkTel"/>')"
+									class="i-telcont ml20" title="电话联系">电话联系</a>
+							</s:if>
+						</p>
+						<div>
+							<ul class="df">
+								<li class="df-box al">描述相符<span class="c-ff4546"><s:property value="goods.shop.descriptionLevel"/></span></li>
+								<li class="df-box ac">送货速度<span class="c-ff4546"><s:property value="goods.shop.deliveryLevel"/></span></li>
+								<li class="df-box ar">服务态度<span class="c-ff4546"><s:property value="goods.shop.attitudeLevel"/></span></li>
+							</ul>
+						</div>
+					</div>
+					<!--  <p class="intro gray ell"><s:property value="goods.shop.companyAbout" escape="false"/></p> -->
+				</div>
+				<div class="ac">
+					<!-- <a href="m/shopIndex!goodsList?id=<s:property value="goods.shop.id"/>" class="btn">全部商品</a> -->
+					<input type="hidden" name="flag" id="flag" value="<s:property value="shopFlag"/>">
+					<input type="hidden"  id="shopId" value="<s:property value="goods.shop.id"/>">
+					<a class="btn" id="bookmark"><i
+						class="cep-icon icon-aixin-kong"></i><span>收藏店铺</span></a>
+					<%--<a href="m/shopIndex!makeGoodsTypeData?id=<s:property value="goods.shop.id"/>" class="btn">查看分类</a>--%>
+					<a
+						href="m/shopIndex!shopIntro?id=<s:property value="goods.shop.id"/>"
+						class="btn"><i class="cep-icon icon-dianpu"></i><span>进店逛逛</span></a>
+				</div>
+			</div>
+		</s:if>
+		<div class="itemLine" style="background-color: #f4f4f4;border: 0;"></div>
+		<div class="gbox" style="margin-bottom:100px">
+			<div class="c-box mb10">
+				<div class="box-selects df" id="detail-selects" style="border-bottom: 1px solid #ededed;">
+					<a class="gtab df-box cur" style="border-right: 1px solid #ededed;">商品详情</a> <a class="gtab df-box">适用车型</a>
+				</div>
+				<div class="gview">
+					<div class="view">
+						<div class="article">
+							<s:property value="goods.detail" escape="false" />
+						</div>
+					</div>
+					<div class="view hide">
+						<%--<ul class="typelist">
+				<s:iterator value="queryGoodsCarList(goods.id)">
+					<li><s:property value="car.carName"/></li>						
+				</s:iterator>
+				</ul>
+				--%>
+						<div class="article">
+							<s:property value="goods.goodsCarName" escape="false" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<s:set name="isShowPrice"
+			value="#session.login_front_sonPlatform.isLoginShowPrice" />
+		<div id="buy" class="f-block buy-block" data-func="showBuy"
+			data-type="0">
+			<div class="frame">
+
+
+				<form action="wx/index!addCar" class="handle" id="goodsDetail">
+					<input type="hidden" name="carGoodsId"
+						value="<s:property value="goods.id"/>">
+					<div class="c-box">
+						<div class="box-table">
+							<strong>
+								<p>购买数量：</p>
+								<p>价格：</p>
+							</strong> <span class="ar">
+								<p>
+									<i>-</i> <input name="carCount" id="buyInput" type="tel"
+										value="1" data-max="<s:property value="#maxCount"/>"
+										data-arr="<s:property value="#arrprice"/>" data-promotion="1"
+										data-lowprice="<s:property value="getGoodsAcPrice(goods,true)"/>">
+									<i>+</i>
+								</p> <s:if test="#isShowPrice==1 && #session.login_user==null"></s:if>
+								<s:else>
+									<p class="ac rred wsn">
+										￥<span id="buyTotal"><s:property
+												value="getGoodsAcPrice(goods,true)" /></span>/
+										<s:property value="goods.unit" />
+										<%-- <s:if test="promotion!=null&&promotion.workStatus==2"> x <s:property value="formatDouble(promotion.discount*100)"/>% = ￥<span id="buyTotal-pro"><s:property value="formatDouble(goods.lowPrice*promotion.discount)"/></span></s:if> --%>
+									</p>
+								</s:else>
+							</span>
+						</div>
+
+					</div>
+				</form>
+				<a onclick="goodsSubmit()" class="btn btn-buy">确定</a>
+			</div>
+		</div>
+
+		<a href="javascript:void(0)" onclick="$('body').scrollTop(0)"
+			class="return-top"></a>
+		<div class="bottom-handle df">
+			<a class="df-box"><span class="c-ff4546">2800</span>积分</a>
+			<a class="df-box btn-ff4546">立刻兑换</a>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$('.box-selects a.gtab').click(function(){
+					var ind = $(this).index();
+					$(this).addClass('cur').siblings().removeClass('cur');
+					$(this).parent().next('.gview').find('.view').addClass('hide').eq(ind).removeClass('hide');
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>

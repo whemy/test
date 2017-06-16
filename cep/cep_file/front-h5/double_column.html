@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<title>double_column</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<meta http-equiv="expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<link rel="stylesheet" href="../css/app_base.css">
+	<link rel="stylesheet" href="../css/appCar_style.css">
+	<link rel="stylesheet" href="../css/cepfont/cepIconfont.css">
+	<script src="../js/util/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<style type="text/css">
+		.choose li{display: inline-block;width: 50px;cursor: pointer;}
+		.choose li.active em{border-bottom: 2px solid  #f44;}
+
+		.column{width: 100%;background-color: #f3f3f3;position: absolute;top: 10%;right: 0;bottom: 0;left: 0;}
+		.column .left{width: 33%;position: absolute;top: 0;bottom: 0;left: 0;overflow-y: scroll;}
+		.column .left li{border-bottom: 1px solid  #ededed;color: #fff;background-color: #5861e4;padding: 10px 0;text-align: center;cursor: pointer;}
+		.column .left li.active{background-color: #fefef2;color: #333;}
+		.column .right{width: 63%;padding: 8px;position: absolute;top: 0;right: 0;bottom: 0;background-color: #80e458;}
+		.column .right .rightWrap{color: #fff;position: absolute;top: 0;right: 0;bottom: 0;left: 5%;background-color: #456;overflow-y: scroll;}
+	</style>
+</head>
+<body>
+	
+	<div class="">
+		<input type="text" id="input">
+		<div class="choose">
+			<ul class="cl">
+				<li class="li"><em>01</em><span class="hide">asfdsaafsfasdfsadf-111111111111111111111111</span></li>
+				<li class="li"><em>02</em><span class="hide">asfdsaafsfasdfsadf-222222222222222222222222</span></li>
+				<li class="li"><em>03</em><span class="hide">asfdsaafsfasdfsadf-33333333333333333333333333</span></li>
+				<li class="li"><em>04</em><span class="hide">asfdsaafsfasdfsadf-4444444444444444</span></li>
+				<li class="li"><em>05</em><span class="hide">asfdsaafsfasdfsadf-5555555555555555555555555</span></li>
+			</ul>
+		</div>
+		<div class="column">
+			<div class="left">
+				<ul>
+					<li>1</li>
+				</ul>
+			</div>
+			<div class="right">
+				<div class="rightWrap">
+					<p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> <p>lasdfjasf;sla</p> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var leftUl = $('.column').find('.left ul');
+		var j = 0;
+		$('.choose li').each(function(i,o){
+			var self = $(this);
+			self.click(function(e){
+				$(this).addClass('active').siblings().removeClass('active');
+				++j;
+				console.log('j:'+j);
+				leftUl.append("<li data-left='"+j+"'>"+j+'+'+$(this).html()+"</li>");
+				$('.right').append("<div class='rightWrap' data-right='"+j+"'>"+j+':___'+$(this).find('span').text()+"<div class='delete ar' data-delete="+j+">删除</div></div>");
+				var leftLi = $('.column .left li');
+				var _len = $('.column .left li').size();
+				console.log(_len);
+				$('.right .rightWrap').eq(j).find('.delete').click(function(){
+					var prw = $(this).parent('.rightWrap');
+					prw.next('.rightWrap').css('zIndex',_len);
+					prw.remove();
+					var de = $(this).data('delete');
+					console.log('de:'+de);
+					$('.column .left li').eq(de).remove();
+				})
+				leftLi.each(function(ii,oo){
+					$(this).click(function(){
+						console.log(ii);
+						$(this).addClass('active').siblings().removeClass('active');
+						$('.right').children('.rightWrap').eq(ii).css('zIndex',_len).siblings('.rightWrap').css('zIndex',1);
+					})
+				})
+			})
+		})
+	</script>
+</body>
+</html>

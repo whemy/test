@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<meta http-equiv="expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../css/app-inquiry.css">
+	<link rel="stylesheet" href="../css/app-inquiry-add.css">
+	<link rel="stylesheet" href="../css/cepfont/cepIconfont.css?v=${version}">
+	<link rel="stylesheet" href="../js/area/mobile-select-area.css?v=20170224">
+	<script src="../js/util/jquery-1.9.0.js" type="text/javascript"></script>
+	<script src="../js/util/knockout-3.4.0.js" type="text/javascript"></script>
+	<script src="../js/util/knockout.mapping-2.4.1.js" type="text/javascript"></script>
+	<script src="../js/ua.js" type="text/javascript"></script>
+	<script src="../js/area/dialog.js" type="text/javascript"></script>
+	<script src="../js/area/mobile-select-area.js?v=20170224"></script>
+</head>
+<body>
+	<div class="head-title">
+		<div class="c-box">
+			<div class="box-table">
+				<span>
+					<a href="javascript:history.go(-1)" class="goback"></a>
+				</span>
+				<strong>添加配件</strong>
+				<span><i class="right"></i></span>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 疑难件 S -->
+	<section class="inquiry-seg">
+		<div class="puzzle_requiry">
+			<div class="puzzle_requiry_title">您的需求</div>
+			<div class="">
+				<textarea name="" id="" data-bind="event:{keyup:textareaAutoHeightOften}" placeholder="请尽量详细填写所需的商品信息。如：车架号或车型（品牌、车系、年款、排量）及所需配件（原装火花塞1个、进口倒车镜2个）"></textarea>
+			</div>
+		</div>
+	</section>
+	<!-- 疑难件 S -->
+
+	<!-- 图片上传 S -->
+	<section class="">
+		<div class="inquiry-photo">
+			<div class="upload-label" data-bind="click: chooseImage"><i class="cep-icon icon-jia1 c-ff4546 vm fz20"></i>添加照片（可上传车辆、产品、采购清单等照片）</div>
+			<div class="img-box">
+				<!-- 注意,下面不是注释,是ko的一种特殊的用法 -->
+				<!-- ko foreach : { data: pics, as: 'pic' } -->
+				<div class="img" data-bind="css:{hide:!pic}">
+					<img
+						data-bind="attr:{src:pic},click:$parent.previewImg,css:{hide:!pic}">
+					<i class="del"
+						data-bind="click: $parent.removeImage,attr:{localId:pic},css:{hide: !pic}"></i>
+				</div>
+				<!-- /ko -->
+				<div class="img-box isOneImg" data-bind="click: chooseImage">
+					<img src="/images/wx/inquiry/inquiry-cam.png" alt="">
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- 图片上传 E -->
+
+	<div class="inquiry-box">
+		<div style="height: 60px;"></div>
+		<div class="wh-box c-box">
+			<a class="inquiry-submit wsn btn btn-red btn-block btn-large" data-bind="click: ">发布询价</a>
+		</div>
+	</div>
+
+	<script>
+		var Wxkit = function(){
+			this.flags = {};
+			this.historyState = {};// 单页面用的历史
+			this.appId ="wx704f6da522f8394a";
+		}
+	</script>
+	<!-- <script src="../js/wx/chooseCar.js" type="text/javascript"></script> -->
+	<script src="../js/wx/base.js" type="text/javascript"></script>
+	<script src="../js/wx/wx.js" type="text/javascript"></script>
+	<script src="../js/wx/myhash.js" type="text/javascript"></script>
+	<script src="../js/wx/addr.js?v=20170224"></script>
+	<script src="../js/wx/inquiry/carSize.js" type="text/javascript"></script>
+	<script src="../js/wx/inquiry/keywordExpend.js" type="text/javascript"></script>
+	<script src="../js/wx/inquiry/add.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<meta http-equiv="expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../css/app-inquiry.css">
+	<link rel="stylesheet" href="../css/app-inquiry-add.css">
+	<link rel="stylesheet" href="../css/cepfont/cepIconfont.css?v=${version}">
+	<link rel="stylesheet" href="../js/area/mobile-select-area.css?v=20170224">
+	<script src="../js/util/jquery-1.9.0.js" type="text/javascript"></script>
+	<script src="../js/util/knockout-3.4.0.js" type="text/javascript"></script>
+	<script src="../js/util/knockout.mapping-2.4.1.js" type="text/javascript"></script>
+	<script src="../js/ua.js" type="text/javascript"></script>
+	<script src="../js/area/dialog.js" type="text/javascript"></script>
+	<script src="../js/area/mobile-select-area.js?v=20170224"></script>
+</head>
+<body>
+	<div class="head-title">
+		<div class="c-box">
+			<div class="box-table">
+				<span>
+					<a href="javascript:history.go(-1)" class="goback"></a>
+				</span>
+				<strong>添加配件</strong>
+				<span><i class="right"></i></span>
+			</div>
+		</div>
+	</div>
+
+	<section class="inquiry-seg has-fixed">
+		<!-- 选择车型 S -->
+		<div class="inquiry-car">
+			<div class="line" data-type="0">
+				<a href="javascript:void(0);" class="line-item"><span
+					class="c-ff4546">*</span>车型：<span style="color:#333;">大众2017款1.5L</span></a>
+			</div>
+			<!-- 选择车型 E -->
+			<!-- 车架号 S -->
+			<div class="line df">
+				<a class="line-item df-box">车架号</a>
+				<div class="webpack line-input" id="carvinnum">
+					<input id="vinNum" type="text" placeholder="请输入17位车架号(选填)"
+						maxlength="17" style="width:90%;">
+				</div>
+				<div class="text df-box inquiry-addCarvin" data-type="vin"
+					data-bind="click: carvinpic">
+					<!-- <span data-type="vin" ></span> -->
+					<a></a> <img data-bind="attr:{src:vin},css:{hide:!vin()}"> <b
+						type="vin" data-bind="click: removeImage, css:{hide:!vin()}"></b>
+				</div>
+			</div>
+			<!-- 车架号 E -->
+			<!-- 配件类型 S -->
+			<div class="line" data-bind="click: startChoose" data-type="1">
+				<a class="line-item">配件类型：<span style="color:#333;">原车</span></a>
+			</div>
+			<!-- 配件类型 E -->
+		</div>
+	</section>
+
+	<!-- 添加配件 S -->
+	<section class="inquiry-seg">
+		<div class="add_parts">
+			<a class="add_parts_title" data-bind="click: startParts"><i class="cep-icon icon-jia1 c-ff4546 vm fz20"></i>添加配件</a>
+			<div class="add_parts_bg"
+				data-bind="click: startParts, style: { height: inquiryParts().length < 4 ? '70px' : ''}">
+				<span class="text text-parts" data-bind="foreach:inquiryParts">
+					<a href="javascript:void(0);"
+					data-bind="text: ($index()+1)+'.'+$data"></a>
+				</span>
+			</div>
+		</div>
+	</section>
+	<!-- 添加配件 E -->
+
+	<!-- 图片上传 S -->
+	<section class="">
+		<div class="inquiry-photo">
+			<div class="upload-label" data-bind="click: chooseImage"><i class="cep-icon icon-jia1 c-ff4546 vm fz20"></i>添加照片（可上传车辆、产品、采购清单等照片）</div>
+			<div class="img-box">
+				<!-- 注意,下面不是注释,是ko的一种特殊的用法 -->
+				<!-- ko foreach : { data: pics, as: 'pic' } -->
+				<div class="img" data-bind="css:{hide:!pic}">
+					<img
+						data-bind="attr:{src:pic},click:$parent.previewImg,css:{hide:!pic}">
+					<i class="del"
+						data-bind="click: $parent.removeImage,attr:{localId:pic},css:{hide: !pic}"></i>
+				</div>
+				<!-- /ko -->
+				<div class="img-box isOneImg" data-bind="click: chooseImage">
+					<img src="/images/wx/inquiry/inquiry-cam.png" alt="">
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- 图片上传 E -->
+
+	<!-- 留言 S -->
+	<section class="">
+		<div class="inquiry-message">
+			<div class="record-btn fl" data-bind="click: startRecord"></div>
+			<div class="msg-textarea">
+				<textarea placeholder="给商家留言（不能添加配件）"
+					data-bind="textInput: message,event:{keyup:textareaAutoHeight}"
+					maxlength="255"></textarea>
+			</div>
+		</div>
+		<div class="sound-box inquiry-sound-box">
+			<!--ko foreach:voices-->
+			<div class="sound-record"
+				data-bind="attr:{style:'width:'+width()},click:$root.playVoice">
+				<span data-bind="text: duration_tx"></span> <b></b> <i class="del"
+					data-bind="click: $root.removeVoice"></i>
+			</div>
+			<!--/ko-->
+		</div>
+		<!-- 语音留言 -->
+	</section>
+	<!-- 留言 E -->
+
+	<!-- 添加配件弹窗 S -->
+	<div id="filter-parts" class="f-block filter-block mask-block"
+		style="background-color: rgba(0,0,0,0.35);z-index: 98;">
+		<div
+			style="position: absolute;top: 10%;left: 10%;width: 80%;height:60%;z-index: 98;">
+			<div class="frame">
+				<div>
+					<div class="filter_parts_head">
+						<div class="c-box"
+							data-bind="css:{expend: kevm.isShow() && kevm.cacheKwList().length}">
+							<div class="filter_parts_table">
+								<div class="filter_parts_input">
+									<input type="text" placeholder="添加需报价配件" value=""
+										autocomplete="off" data-bind="event: {focus: kevm.getExpend}"
+										id="queryGoodsName">
+								</div>
+								<em class="filter_parts_addBtn"
+									data-bind="click: $root.addInputBtn">添加</em>
+							</div>
+							<div class="searchword-expend">
+								<span class="bclose" data-bind="click: kevm.close"></span>
+								<!-- ko foreach: kevm.cacheKwList -->
+								<a href="javascript:void(0)"
+									data-bind="text: $data, click: $root.addPart"></a>
+								<!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 搜索 -->
+				<div class="type-nav">
+					<div class="right" style="position:static;">
+						<section class="">
+							<div class="inquiry-parts"
+								data-bind="css:{error: inquiryPartsErr()}">
+								<span>已选：</span>
+								<!-- ko foreach:inquiryParts -->
+								<a href="javascript:void(0);"
+									data-bind="click: $root.removePart, text: ($index()+1)+'.'+$data"></a>
+								<!-- /ko -->
+							</div>
+						</section>
+						<!-- 选择商品 -->
+					</div>
+					<div class="clear">
+						<a href="javascript:void(0)" data-bind="click: part_ok">确定</a> <a
+							href="javascript:void(0)" data-bind="click: part_close"
+							style="background:#fff;color:#ff4546;">取消</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 添加配件弹窗 E -->
+
+	<!-- 录音动画 S -->
+	<div id="toastRecord" class="toast-record hide">
+		<div class="container">
+			<div class="title">正在录音</div>
+			<div class="mic">
+				<b></b>
+			</div>
+			<div class="ac blue time">00:53</div>
+			<div class="btns">
+				<a class="cancel">取消</a> <a class="ok">说完了</a>
+			</div>
+		</div>
+	</div>
+	<!-- 录音动画 E -->
+
+	<div class="inquiry-box">
+		<div style="height: 60px;"></div>
+		<div class="wh-box c-box">
+			<a class="inquiry-submit wsn btn btn-red btn-block btn-large" data-bind="click: ">完成添加</a>
+		</div>
+	</div>
+
+	<script>
+		var Wxkit = function(){
+			this.flags = {};
+			this.historyState = {};// 单页面用的历史
+			this.appId ="wx704f6da522f8394a";
+		}
+	</script>
+	<!-- <script src="../js/wx/chooseCar.js" type="text/javascript"></script> -->
+	<script src="../js/wx/base.js" type="text/javascript"></script>
+	<script src="../js/wx/wx.js" type="text/javascript"></script>
+	<script src="../js/wx/myhash.js" type="text/javascript"></script>
+	<script src="../js/wx/addr.js?v=20170224"></script>
+	<script src="../js/wx/inquiry/carSize.js" type="text/javascript"></script>
+	<script src="../js/wx/inquiry/keywordExpend.js" type="text/javascript"></script>
+	<script src="../js/wx/inquiry/add.js" type="text/javascript"></script>
+</body>
+</html>
